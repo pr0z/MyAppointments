@@ -1,0 +1,5 @@
+d:\users\ben-j\documents\visual studio 2012\Projects\MyAppointments\MyAppointments\bin\MyAppointments.dll
+d:\users\ben-j\documents\visual studio 2012\Projects\MyAppointments\MyAppointments\bin\MyAppointments.pdb
+d:\users\ben-j\documents\visual studio 2012\Projects\MyAppointments\MyAppointments\obj\Debug\MyAppointments.csprojResolveAssemblyReference.cache
+d:\users\ben-j\documents\visual studio 2012\Projects\MyAppointments\MyAppointments\obj\Debug\MyAppointments.dll
+d:\users\ben-j\documents\visual studio 2012\Projects\MyAppointments\MyAppointments\obj\Debug\MyAppointments.pdb

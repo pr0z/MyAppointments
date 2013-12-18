@@ -1,0 +1,50 @@
+﻿body {
+    width: 1000px;
+    margin: auto;
+    background : url(../images/back.jpg) repeat;
+}
+
+#title {
+    text-align: center;
+    width: 1000px;
+}
+#menu {
+    width : 100%;
+    margin : auto;
+    text-align: center;
+}
+#lst_Cli,#lst_Pro  {
+    width : 100%;
+    margin : auto;
+    border-spacing: 10px;
+}
+
+
+#lst_Cli, #lst_Pro tbody th {
+	color: #405C60;
+    
+}
+
+#msgerror {
+    width : 100%;
+    text-align: right;
+    font-size: 12px;
+}
+.recherche {
+	border-top: solid 2px #6D139B;
+    border-bottom: solid 2px #6D139B;
+    border-right: solid 2px #6D139B;
+    border-left: solid 2px #6D139B;
+	background-image: url("../images/loupe.png");
+	background-repeat:no-repeat;
+	padding-left: 20px;
+	border-radius: 10px;			/* instruction standard */
+	-moz-border-radius: 10px;		/* spécifique Mozilla */
+	-webkit-border-radius: 10px;		/* spécifique WebKit (Safari, Chrome etc.) */
+	-opera-border-radius: 10px;		/* spécifique Opera */
+    float: right;
+}
+.icone_Client {
+    padding-left: 10px;
+}
+
