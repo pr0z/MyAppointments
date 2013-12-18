@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="fr.esgi.myappointments"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="18" />
+
+    <application
+        android:allowBackup="true"
+        android:name=".AppointmentsApp"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="ConnectionActivity"
+            android:label="@string/title_connection" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="InscriptionActivity"
+            android:label="@string/title_inscription" />
+        <activity
+            android:name="ForgetPasswordActivity"
+            android:label="@string/title_forget_password" />
+        <activity
+            android:name="HomeActivity"
+            android:label="@string/title_home" />
+    </application>
+
+</manifest>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/activity_background"
+        android:orientation="vertical"
+        android:padding="20dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/label_createaccount"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_26" />
+
+        <TextView
+            style="@style/form_label"
+            android:text="@string/label_gender" />
+
+        <RadioGroup
+            android:id="@+id/radiogroup_gender"
+            style="@style/form_radiogroup" >
+
+            <RadioButton
+                android:id="@+id/radio_gender_male"
+                style="@style/form_radio"
+                android:checked="true"
+                android:tag="1"
+                android:text="@string/label_male" />
+
+            <RadioButton
+                android:id="@+id/radio_gender_female"
+                style="@style/form_radio"
+                android:tag="2"
+                android:text="@string/label_female" />
+        </RadioGroup>
+
+        <TextView
+            style="@style/form_label"
+            android:text="@string/label_username" />
+
+        <EditText
+            android:id="@+id/edit_login"
+            style="@style/form_value"
+            android:inputType="text" />
+
+        <TextView
+            style="@style/form_label"
+            android:text="@string/label_firstname" />
+
+        <EditText
+            android:id="@+id/edit_firstname"
+            style="@style/form_value"
+            android:inputType="text" />
+
+        <TextView
+            style="@style/form_label"
+            android:text="@string/label_lastname" />
+
+        <EditText
+            android:id="@+id/edit_lastname"
+            style="@style/form_value"
+            android:inputType="text" />
+
+        <!-- <TextView android:text="@string/label_birth" style="@style/form_label" /> -->
+        <!-- <EditText android:id="@+id/edit_birth" style="@style/form_datepicker" /> -->
+
+        <TextView
+            style="@style/form_label"
+            android:text="@string/label_email" />
+
+        <EditText
+            android:id="@+id/edit_email"
+            style="@style/form_value"
+            android:inputType="textEmailAddress" />
+
+        <TextView
+            style="@style/form_label"
+            android:text="@string/label_phone" />
+
+        <EditText
+            android:id="@+id/edit_phone"
+            style="@style/form_value"
+            android:inputType="phone" />
+
+        <TextView
+            style="@style/form_label"
+            android:text="@string/label_password" />
+
+        <EditText
+            android:id="@+id/edit_password"
+            style="@style/form_value"
+            android:inputType="textPassword" />
+
+        <TextView
+            style="@style/form_label"
+            android:text="@string/label_passwordconfirm" />
+
+        <EditText
+            android:id="@+id/edit_passwordconfirm"
+            style="@style/form_value"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/button_create"
+            style="@style/button"
+            android:layout_marginTop="50dp"
+            android:onClick="createAccount"
+            android:text="@string/button_inscription" />
+    </LinearLayout>
+
+</ScrollView>
