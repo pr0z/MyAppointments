@@ -43,8 +43,36 @@
 	-webkit-border-radius: 10px;		/* spécifique WebKit (Safari, Chrome etc.) */
 	-opera-border-radius: 10px;		/* spécifique Opera */
     float: right;
+    margin-bottom: 3%;
 }
 .icone_Client {
     padding-left: 10px;
 }
-
+.icon_phone {
+    width: 10px;
+    margin-top: -27px;
+    margin-left: 13px;
+    display: flex;
+}
+.icon_calendar {
+    width: 16px;
+    margin-top: -27px;
+    margin-left: 10px;
+    display: flex;
+}
+.textarea {
+    width: 100%;
+    resize: none;
+    border: 1px solid #6D139B;
+}
+.modifCli  {
+    width : 75%;
+    text-align: left;
+    border-spacing: 10px;
+}
+.modifCli input[type=text]  {
+    text-align: left;
+    border: 1px solid #6D139B;
+    border-radius: 2px;
+    padding : 10px 20px;
+}

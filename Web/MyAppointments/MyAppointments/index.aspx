@@ -1,14 +1,26 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="MyAppointments.index" %>
-
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
     <link rel="icon" href="images/icone.png" />
     <link rel="stylesheet" type="text/css" href="CSS/main.css" />
     <link rel="stylesheet" type="text/css" href="CSS/style.css" />
     <link rel="stylesheet" type="text/css" href="CSS/animate-custom.css" />
+    <link rel="stylesheet" type="text/css" href="CSS/overcast/jquery-ui-1.10.3.custom.min.css">
+    <script type="text/javascript" src="js/fonctions.js"></script>
+    <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.10.3.custom.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                firstDay: 1
+            });
+        });
+    </script>
     <title>MyAppointments</title>
 </head>
 <body>
@@ -46,16 +58,15 @@
 						</p>
                     </form>
                 </div>
-
                 <div id="register" class="animate form">
                     <form  action="index.aspx" autocomplete="on"> 
-                        <h1> Inscription </h1>                    
+                        <h1> Inscription</h1>                    
                         <table id="menu">
                             <tr>
                                 <td><label for="typesignup1" >CLIENT</label></td>
-                                <td><input id="typesignup1" name="type" type="radio" checked="checked" required="required" value="1"/></td>
+                                <td><a href="#toregister" class="to_register"><input id="typesignup1" name="type" type="radio" checked="checked" required="required" value="1"/></a></td>
                                 <td><label for="typesignup1" >PROFESSIONEL</label></td>
-                                <td><input id="typesignup2" name="type" type="radio" required="required" value="2" /></td>
+                                <td><a href="#toregister2" class="to_register2"><input id="typesignup2" name="type" type="radio" required="required" value="2" /></a></td>
                             </tr>
                         </table>                                       
                         <p> 
@@ -69,27 +80,12 @@
                         <p> 
                             <label for="usertelsignup" class="uname">Numéro de téléphone</label>
                             <input id="usersurtelsignup" name="usersurtelsignup" required="required" type="text" />
+                            <img src="images/phone.png" class="icon_phone"/> 
                         </p>
                         <p> 
                             <label for="userbirthsignup" class="uname">Date de naissance</label><br />
-                            <select id="userbirthdaysignup" required="required" runat="server">
-                                <option>1</option>
-                                <option>1</option>
-                                <option>1</option>
-                                <option>1</option>
-                            </select>
-                            <select id="userbirthmonthsignup" required="required" runat="server">
-                                <option>1</option>
-                                <option>1</option>
-                                <option>1</option>
-                                <option>1</option>
-                            </select>
-                            <select id="userbirthyearsignup" required="required" runat="server">
-                                <option>1</option>
-                                <option>1</option>
-                                <option>1</option>
-                                <option>1</option>
-                            </select>
+                            <input id="datepicker" required="required" type="text" readonly />
+                            <img src="images/calendar.png" class="icon_calendar"/>
                         </p>
                         <p> 
                             <label for="emailsignup" class="youmail" data-icon="e" >E-mail</label>

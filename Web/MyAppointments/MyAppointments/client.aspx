@@ -36,8 +36,8 @@
                             <td>06 12 12 12 12</td>
                             <td>
                                 <a href="/gestionClient.aspx"><img class="icone_Client" src="images/gestion.png" width="30" /></a> 
-                                <a href="#"><img class="icone_Client" src="images/notif.png" width="30" /></a> 
-                                <a href="#"><img class="icone_Client" src="images/history.png" width="30" /></a>
+                                <a href="/notifClient.aspx"><img class="icone_Client" src="images/notif.png" width="30" /></a> 
+                                <a href="/histoClient.aspx"><img class="icone_Client" src="images/history.png" width="30" /></a>
                             </td>
                         </tr>
                         <tr>

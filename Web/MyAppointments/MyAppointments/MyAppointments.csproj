@@ -64,7 +64,26 @@
     <Content Include="CSS\fonts\fontomas-webfont.svg" />
     <Content Include="CSS\fonts\franchise-bold-webfont.svg" />
     <Content Include="CSS\main.css" />
+    <Content Include="CSS\overcast\images\animated-overlay.gif" />
+    <Content Include="CSS\overcast\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="CSS\overcast\images\ui-bg_flat_0_eeeeee_40x100.png" />
+    <Content Include="CSS\overcast\images\ui-bg_flat_55_c0402a_40x100.png" />
+    <Content Include="CSS\overcast\images\ui-bg_flat_55_eeeeee_40x100.png" />
+    <Content Include="CSS\overcast\images\ui-bg_glass_100_f8f8f8_1x400.png" />
+    <Content Include="CSS\overcast\images\ui-bg_glass_35_dddddd_1x400.png" />
+    <Content Include="CSS\overcast\images\ui-bg_glass_60_eeeeee_1x400.png" />
+    <Content Include="CSS\overcast\images\ui-bg_inset-hard_75_999999_1x100.png" />
+    <Content Include="CSS\overcast\images\ui-bg_inset-soft_50_c9c9c9_1x100.png" />
+    <Content Include="CSS\overcast\images\ui-icons_3383bb_256x240.png" />
+    <Content Include="CSS\overcast\images\ui-icons_454545_256x240.png" />
+    <Content Include="CSS\overcast\images\ui-icons_70b2e1_256x240.png" />
+    <Content Include="CSS\overcast\images\ui-icons_999999_256x240.png" />
+    <Content Include="CSS\overcast\images\ui-icons_fbc856_256x240.png" />
+    <Content Include="CSS\overcast\jquery-ui-1.10.3.custom.css" />
+    <Content Include="CSS\overcast\jquery-ui-1.10.3.custom.min.css" />
     <Content Include="CSS\style.css" />
+    <Content Include="gestionClient.aspx" />
+    <Content Include="images\arrow_select.jpg" />
     <Content Include="images\back.jpg" />
     <Content Include="images\bg.jpg" />
     <Content Include="images\client.png" />
@@ -74,8 +93,13 @@
     <Content Include="images\logo.png" />
     <Content Include="images\loupe.png" />
     <Content Include="images\notif.png" />
+    <Content Include="images\phone.png" />
     <Content Include="images\pro.png" />
     <Content Include="index.aspx" />
+    <Content Include="js\fonctions.js" />
+    <Content Include="js\jquery-1.9.1.js" />
+    <Content Include="js\jquery-ui-1.10.3.custom.js" />
+    <Content Include="js\jquery-ui-1.10.3.custom.min.js" />
     <Content Include="pro.aspx" />
     <Content Include="Web.config" />
     <Content Include="admin.aspx" />
@@ -87,6 +111,13 @@
     </Compile>
     <Compile Include="client.aspx.designer.cs">
       <DependentUpon>client.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="gestionClient.aspx.cs">
+      <DependentUpon>gestionClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="gestionClient.aspx.designer.cs">
+      <DependentUpon>gestionClient.aspx</DependentUpon>
     </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
