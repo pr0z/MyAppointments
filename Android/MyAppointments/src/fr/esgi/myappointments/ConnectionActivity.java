@@ -39,15 +39,9 @@ public class ConnectionActivity extends Activity {
 		editPassword = (EditText) findViewById(R.id.edit_password);
 //		checkRememberMe = (CheckBox) findViewById(R.id.check_rememberme);
 		textInscription = (TextView) findViewById(R.id.inscription);
-		SpannableString content = new SpannableString(textInscription.getText().toString());
-		content.setSpan(new UnderlineSpan(), 0, textInscription.getText().toString().length(), 0);
-		textInscription.setText(content);
 		textPasswordForgotten = (TextView) findViewById(R.id.passwordForgotten);
-		content = new SpannableString(textPasswordForgotten.getText().toString());
-		content.setSpan(new UnderlineSpan(), 0, textPasswordForgotten.getText().toString().length(), 0);
-		textPasswordForgotten.setText(content);
 		
-//		BuddyDroidApp.recreateDB(this);
+//		AppointmentsApp.recreateDB(this);
 		
 		//TODO : Remove to presentation
 		editEmail.setText("julienwetstein@gmail.com");

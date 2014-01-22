@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">MyAppointments</string>
+    <string name="app_name">My Appointments</string>
     
     <!-- TITLE -->
     <string name="title_connection">Connexion</string>
@@ -34,18 +34,26 @@
     <string name="label_lastname">Nom :</string>
     <string name="label_firstname">Prénom :</string>
     <string name="label_birth">Date de naissance :</string>
+    <string name="label_status">Statut :</string>
+    <string name="label_client">Client</string>
+    <string name="label_pro">Professionnel</string>
     <string name="label_gender">Genre :</string>
     <string name="label_male">Masculin</string>
     <string name="label_female">Féminin</string>
    	<string name="label_email">Email :</string>
    	<string name="label_username">Pseudo :</string>
+   	<string name="label_company_name">Raison sociale :</string>
+   	<string name="label_postal_address">Adresse postale :</string>
+   	<string name="label_num_siren">N° SIREN :</string>
+   	<string name="label_contact_firstname">Nom du responsable :</string>
+   	<string name="label_contact_lastname">Prénom du responsable :</string>
    	<string name="label_phone">Téléphone :</string>
    	<string name="label_password">Mot de passe :</string>
    	<string name="label_passwordconfirm">Confirmer mot de passe :</string>
     <string name="label_rememberme">Se souvenir</string>
     <string name="label_connection">Connectez-vous à votre compte ou créez en un.</string>
-    <string name="label_inscription">S\'inscrire</string>
-    <string name="label_password_forgotten">Mot de passe oublié ?</string>
+    <string name="label_inscription"><u>S\'inscrire</u></string>
+    <string name="label_password_forgotten"><u>Mot de passe oublié ?</u></string>
     <string name="label_createaccount">Veuillez remplir tous les champs avant de créer votre compte.</string>
     <string name="label_send_password">Veuillez saisir votre adresse électronique valide et nous vous enverrons par email votre mot de passe actuel.</string>
  
@@ -54,4 +62,8 @@
     <string name="toast_error_password">Le mot de passe n\'est pas le même</string>
     <string name="toast_error_email">L\'email n\'est pas valide</string>
     
+   	<!-- ERROR -->
+   	<string name="error_empty_field">Champ obligatoire</string>
+   	<string name="error_email">Email invalide</string>
+   	
 </resources>
