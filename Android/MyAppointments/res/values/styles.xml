@@ -17,7 +17,8 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
-    <style name="button">
+<!-- BUTTON -->
+    <style name="Button">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>
@@ -30,13 +31,14 @@
         <item name="android:textSize">@dimen/text_26</item>
 <!--         <item name="android:background">@drawable/button_yellow_selector</item> -->
 	</style>
-	<style name="button_horizontal" parent="button">
+	<style name="ButtonHorizontal" parent="Button">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
 	</style>
 	
-	<style name="form_label">
+<!-- FORM -->
+	<style name="FormLabel">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">left</item>
@@ -44,21 +46,38 @@
         <item name="android:textSize">@dimen/text_22</item>
         <item name="android:layout_marginTop">20dp</item>
 	</style>
-	<style name="form_value">
+	<style name="FormValue">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">left</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">@dimen/text_22</item>
 	</style>
-	<style name="form_radiogroup">
+	<style name="FormRadioGroup">
 	    <item name="android:orientation">horizontal</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
 	</style>
-	<style name="form_radio">
+	<style name="FormRadio">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_weight">1</item>
 	</style>
+	
+<!-- CALENDAR -->
+	<style name="Calendar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_gravity">center</item>
+	</style>
+	<style name="CalendarCell">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/cell_bg</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">10dp</item>
+	</style>
+	
 </resources>

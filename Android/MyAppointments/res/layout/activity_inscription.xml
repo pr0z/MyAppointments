@@ -19,23 +19,23 @@
             android:textSize="@dimen/text_26" />
 
         <TextView
-            style="@style/form_label"
+            style="@style/FormLabel"
             android:text="@string/label_status" />
 
         <RadioGroup
             android:id="@+id/radiogroup_status"
-            style="@style/form_radiogroup" >
+            style="@style/FormRadioGroup" >
 
             <RadioButton
                 android:id="@+id/radio_status_client"
-                style="@style/form_radio"
+                style="@style/FormRadio"
                 android:checked="true"
                 android:tag="client"
                 android:text="@string/label_client" />
 
             <RadioButton
                 android:id="@+id/radio_status_pro"
-                style="@style/form_radio"
+                style="@style/FormRadio"
                 android:tag="pro"
                 android:text="@string/label_pro" />
         </RadioGroup>
@@ -54,23 +54,23 @@
                 android:orientation="vertical" >
 
                 <TextView
-                    style="@style/form_label"
+                    style="@style/FormLabel"
                     android:text="@string/label_firstname" />
                 <EditText
                     android:id="@+id/edit_firstname"
-                    style="@style/form_value"
+                    style="@style/FormValue"
                     android:inputType="text" />
 
                 <TextView
-                    style="@style/form_label"
+                    style="@style/FormLabel"
                     android:text="@string/label_lastname" />
                 <EditText
                     android:id="@+id/edit_lastname"
-                    style="@style/form_value"
+                    style="@style/FormValue"
                     android:inputType="text" />
 
-                <!-- <TextView android:text="@string/label_birth" style="@style/form_label" /> -->
-                <!-- <EditText android:id="@+id/edit_birth" style="@style/form_datepicker" /> -->
+                <!-- <TextView android:text="@string/label_birth" style="@style/FormLabel" /> -->
+                <!-- <EditText android:id="@+id/edit_birth" style="@style/Formdatepicker" /> -->
             </LinearLayout>
 
             <LinearLayout
@@ -80,82 +80,82 @@
                 android:orientation="vertical" >
                 
                 <TextView
-                    style="@style/form_label"
+                    style="@style/FormLabel"
                     android:text="@string/label_company_name" />
                 <EditText
                     android:id="@+id/edit_company_name"
-                    style="@style/form_value"
+                    style="@style/FormValue"
                     android:inputType="text" />
                 
                 <TextView
-                    style="@style/form_label"
+                    style="@style/FormLabel"
                     android:text="@string/label_num_siren" />
                 <EditText
                     android:id="@+id/edit_num_siren"
-                    style="@style/form_value"
+                    style="@style/FormValue"
                     android:inputType="text" />
                 
                 <TextView
-                    style="@style/form_label"
+                    style="@style/FormLabel"
                     android:text="@string/label_postal_address" />
                 <EditText
                     android:id="@+id/edit_address"
-                    style="@style/form_value"
+                    style="@style/FormValue"
                     android:inputType="text" />
                 
                 <TextView
-                    style="@style/form_label"
+                    style="@style/FormLabel"
                     android:text="@string/label_contact_firstname" />
                 <EditText
                     android:id="@+id/edit_contact_firstname"
-                    style="@style/form_value"
+                    style="@style/FormValue"
                     android:inputType="text" />
                 
                 <TextView
-                    style="@style/form_label"
+                    style="@style/FormLabel"
                     android:text="@string/label_contact_lastname" />
                 <EditText
                     android:id="@+id/edit_contact_lastname"
-                    style="@style/form_value"
+                    style="@style/FormValue"
                     android:inputType="text" />
             </LinearLayout>
         </ViewSwitcher>
         
         <TextView
-            style="@style/form_label"
+            style="@style/FormLabel"
             android:text="@string/label_email" />
         <EditText
             android:id="@+id/edit_email"
-            style="@style/form_value"
+            style="@style/FormValue"
             android:inputType="textEmailAddress" />
 
         <TextView
-            style="@style/form_label"
+            style="@style/FormLabel"
             android:text="@string/label_phone" />
         <EditText
             android:id="@+id/edit_phone"
-            style="@style/form_value"
+            style="@style/FormValue"
             android:inputType="phone" />
 
         <TextView
-            style="@style/form_label"
+            style="@style/FormLabel"
             android:text="@string/label_password" />
         <EditText
             android:id="@+id/edit_password"
-            style="@style/form_value"
+            style="@style/FormValue"
             android:inputType="textPassword" />
 
         <TextView
-            style="@style/form_label"
+            style="@style/FormLabel"
             android:text="@string/label_passwordconfirm" />
         <EditText
             android:id="@+id/edit_passwordconfirm"
-            style="@style/form_value"
+            style="@style/FormValue"
             android:inputType="textPassword" />
         
 		<Button
             android:id="@+id/button_create"
-            style="@style/button"
+            style="@style/Button"
             android:layout_marginTop="50dp"
             android:onClick="createAccount"
             android:text="@string/button_inscription" />

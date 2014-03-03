@@ -18,6 +18,7 @@ import fr.esgi.myappointments.util.FormValidator;
 public class InscriptionActivity extends FragmentActivity {
 
 	private static final String TAG = "InscriptionActivity";
+	
 	private final String CLIENT_KEY = "client";
 	private final String PRO_KEY = "pro";
 	

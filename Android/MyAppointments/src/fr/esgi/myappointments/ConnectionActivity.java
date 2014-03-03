@@ -1,18 +1,9 @@
 package fr.esgi.myappointments;
 
-import java.util.Date;
-import java.util.List;
-
-import org.json.JSONObject;
-
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.style.UnderlineSpan;
-import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -20,7 +11,6 @@ import android.widget.TextView;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
 
-@SuppressLint("NewApi")
 public class ConnectionActivity extends Activity {
 
 	private static final String TAG = "ConnectionActivity";
@@ -34,6 +24,8 @@ public class ConnectionActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_connection);
+		
+		getActionBar().setTitle(R.string.title_connection);
 		
 		editEmail = (EditText) findViewById(R.id.edit_email);
 		editPassword = (EditText) findViewById(R.id.edit_password);
