@@ -14,6 +14,8 @@ import android.widget.Toast;
 import com.roomorama.caldroid.CaldroidFragment;
 import com.roomorama.caldroid.CaldroidListener;
 
+import fr.esgi.myappointments.widget.NotifManager;
+
 public class CalendarActivity extends FragmentActivity {
 
 	public static final String TAG = "CalendarActivity";
@@ -125,6 +127,8 @@ public class CalendarActivity extends FragmentActivity {
 		@Override
 		public void onSelectDate(Date date, View view) {
 			Toast.makeText(getApplicationContext(), formatter.format(date),	Toast.LENGTH_SHORT).show();
+			NotifManager notif = new NotifManager(getApplicationContext());
+			notif.addNotif(HomeActivity.class, 0, "Date", date.toString());
 		}
 
 		@Override
