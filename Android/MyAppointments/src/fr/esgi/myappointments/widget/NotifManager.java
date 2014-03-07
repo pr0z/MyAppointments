@@ -22,6 +22,7 @@ public class NotifManager {
 	public void addNotif(Class<?> goActivity, int idNotif, String title, String text) {
 		// prepare intent which is triggered if the notification is selected
 		Intent intent = new Intent(context, goActivity);
+		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		PendingIntent pIntent = PendingIntent.getActivity(context, 0, intent, 0);
 		
 		// build notification
@@ -29,7 +30,7 @@ public class NotifManager {
 			.setTicker("MyAppointments "+title)
 	        .setContentTitle(title)
 	        .setContentText(text)
-	        .setSmallIcon(R.drawable.icone)
+	        .setSmallIcon(R.drawable.icon)
 	        .setWhen(System.currentTimeMillis()+1000000)
 	        .setPriority(Notification.PRIORITY_DEFAULT)
 	        .setNumber(10)

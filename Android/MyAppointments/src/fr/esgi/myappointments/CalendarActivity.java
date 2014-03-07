@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
@@ -14,6 +18,7 @@ import android.widget.Toast;
 import com.roomorama.caldroid.CaldroidFragment;
 import com.roomorama.caldroid.CaldroidListener;
 
+import fr.esgi.myappointments.service.NotifService;
 import fr.esgi.myappointments.widget.NotifManager;
 
 public class CalendarActivity extends FragmentActivity {
@@ -127,8 +132,19 @@ public class CalendarActivity extends FragmentActivity {
 		@Override
 		public void onSelectDate(Date date, View view) {
 			Toast.makeText(getApplicationContext(), formatter.format(date),	Toast.LENGTH_SHORT).show();
-			NotifManager notif = new NotifManager(getApplicationContext());
-			notif.addNotif(HomeActivity.class, 0, "Date", date.toString());
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTime(date);
+			
+			//Notif
+			NotifManager notifManager = new NotifManager(getApplicationContext());
+			notifManager.addNotif(HomeActivity.class, 0, "Date", date.toString());
+			
+			//Alarm
+			AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+			Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+			intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			PendingIntent pIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, 0);
+			alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pIntent);
 		}
 
 		@Override
@@ -140,6 +156,15 @@ public class CalendarActivity extends FragmentActivity {
 		@Override
 		public void onLongClickDate(Date date, View view) {
 			Toast.makeText(getApplicationContext(), "Long click " + formatter.format(date), Toast.LENGTH_SHORT).show();
+			
+			Intent myIntent = new Intent(getApplicationContext(), NotifService.class);    
+			myIntent.putExtra("date", date.getTime());
+			myIntent.putExtra("text", "Rendez vous le "+formatter.format(date));
+			
+			AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+			PendingIntent pendingIntent = PendingIntent.getService(getApplicationContext(), 0, myIntent, 0);
+			
+			alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+1000*5, pendingIntent); 
 		}
 
 		@Override
