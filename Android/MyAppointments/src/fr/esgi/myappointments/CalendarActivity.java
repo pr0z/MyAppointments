@@ -12,12 +12,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import com.roomorama.caldroid.CaldroidFragment;
 import com.roomorama.caldroid.CaldroidListener;
 
+import fr.esgi.myappointments.service.NotifReceiver;
 import fr.esgi.myappointments.service.NotifService;
 import fr.esgi.myappointments.widget.NotifManager;
 
@@ -82,8 +84,23 @@ public class CalendarActivity extends FragmentActivity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.home, menu);
+		getMenuInflater().inflate(R.menu.calendar, menu);
 		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.menu_create_task:
+			Intent intent = new Intent(this, CreateTaskActivity.class);
+			startActivity(intent);
+			break;
+
+		default:
+			break;
+		}
+		
+		return super.onOptionsItemSelected(item);
 	}
 	
 	//Initialize Calendar
@@ -157,12 +174,12 @@ public class CalendarActivity extends FragmentActivity {
 		public void onLongClickDate(Date date, View view) {
 			Toast.makeText(getApplicationContext(), "Long click " + formatter.format(date), Toast.LENGTH_SHORT).show();
 			
-			Intent myIntent = new Intent(getApplicationContext(), NotifService.class);    
+			Intent myIntent = new Intent(getApplicationContext(), NotifReceiver.class);    
 			myIntent.putExtra("date", date.getTime());
 			myIntent.putExtra("text", "Rendez vous le "+formatter.format(date));
 			
 			AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-			PendingIntent pendingIntent = PendingIntent.getService(getApplicationContext(), 0, myIntent, 0);
+			PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, myIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 			
 			alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+1000*5, pendingIntent); 
 		}
