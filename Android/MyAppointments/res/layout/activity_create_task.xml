@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/activity_background"
+        android:orientation="vertical"
+        android:padding="20dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/label_create_task"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_26" />
+
+        <TextView
+            style="@style/FormLabel"
+            android:text="@string/label_title" />
+        <EditText
+            android:id="@+id/edit_title"
+            style="@style/FormValue"
+            android:inputType="text" />
+
+        <TextView
+            style="@style/FormLabel"
+            android:text="@string/label_description" />
+        <EditText
+            android:id="@+id/edit_desc"
+            style="@style/FormValue"
+            android:ems="10"
+            android:lines="5"
+	       	android:gravity="left|top"
+	       	android:inputType="textMultiLine" />
+
+        <TextView
+            style="@style/FormLabel"
+            android:text="@string/label_category" />
+        <Spinner
+		    android:id="@+id/spinner_category"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content" />
+        
+        <TextView
+            style="@style/FormLabel"
+            android:text="@string/label_subcategory" />
+        <Spinner
+		    android:id="@+id/spinner_subcategory"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content" />
+        
+		<Button
+            android:id="@+id/button_create"
+            style="@style/Button"
+            android:layout_marginTop="50dp"
+            android:onClick="createTask"
+            android:text="@string/button_create" />
+    
+    </LinearLayout>
+</ScrollView>

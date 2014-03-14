@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <!-- CATEGORY -->
+    <string-array name="array_category">
+        <item>Service à la maison</item>
+		<item>Santé</item>
+		<item>Loisir</item>
+		<item>Administratif</item>
+		<item>Divers</item>
+	</string-array>
+	
+    <!-- SUBCATEGORY HOUSE -->
+    <string-array name="array_category_house">
+        <item>Serrurier</item>
+		<item>Maçon</item>
+		<item>Electricien</item>
+		<item>Couvreur</item>
+		<item>Ramoneur</item>
+		<item>Peintre</item>
+		<item>Jardinier</item>
+		<item>Plombier</item>
+	</string-array>
+	
+    <!-- SUBCATEGORY HEALTH -->
+    <string-array name="array_category_health">
+        <item>Médecin</item>
+		<item>Dentiste</item>
+		<item>Cardiologue</item>
+		<item>Prise de sang</item>
+		<item>Radio</item>
+	</string-array>
+	
+    <!-- SUBCATEGORY HOBBY -->
+    <string-array name="array_category_hobby">
+        <item>Restaurant</item>
+		<item>Bar</item>
+		<item>Hôtel</item>
+		<item>Karting</item>
+		<item>Bowling</item>
+		<item>Paintball</item>
+		<item>Golf</item>
+		<item>Parachute</item>
+		<item>Théâtre</item>
+		<item>Spectacle</item>
+		<item>Boîte de nuit</item>
+		<item>Massage</item>
+		<item>Sauna</item>		
+	</string-array>
+    
+    <!-- SUBCATEGORY ADMIN -->
+    <string-array name="array_category_administration">
+        <item>Mairie</item>
+		<item>Auto-école</item>
+		<item>Information</item>
+		<item>Sécurité sociale</item>
+		<item>Préfecture</item>
+	</string-array>
+	
+    <!-- SUBCATEGORY DIVERSE -->
+    <string-array name="array_category_diverse">
+        <item>Banque</item>
+		<item>Assurance</item>
+		<item>Coiffeur</item>
+		<item>Fleuriste</item>
+		<item>Boulangerie</item>
+		<item>Pâtisserie</item>
+		<item>Traiteur</item>
+	</string-array>
+    
+</resources>

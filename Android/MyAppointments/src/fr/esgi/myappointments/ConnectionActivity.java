@@ -155,8 +155,8 @@ public class ConnectionActivity extends Activity {
 		     public void onFinish() {
 		    	Crouton.makeText(ConnectionActivity.this, "FINISH", Style.INFO).show();
 		    	//TODO : Get for Debug
-		    	Intent intent = new Intent(ConnectionActivity.this, MainActivity.class);
-				startActivity(intent);
+		    	*/Intent intent = new Intent(ConnectionActivity.this, CalendarActivity.class);
+				startActivity(intent);/*
 		     }
 		};
 		request.getAuthentification(handler, mail, password);*/
