@@ -1,0 +1,4 @@
+D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments\bin\Release\MyAppointments.dll
+D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments\bin\Release\MyAppointments.pdb
+D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments\obj\Release\MyAppointments.dll
+D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments\obj\Release\MyAppointments.pdb
