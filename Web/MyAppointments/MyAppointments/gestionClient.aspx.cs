@@ -11,7 +11,8 @@ namespace MyAppointments
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            string value = HttpContext.Current.Request["nom"]; 
+            compteName.Text = value;
         }
     }
 }

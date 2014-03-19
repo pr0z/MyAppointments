@@ -58,6 +58,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="client.aspx" />
+    <Content Include="CompteClient\indexClient.aspx" />
+    <Content Include="ComptePro\indexPro.aspx" />
+    <Content Include="histoClient.aspx" />
     <Content Include="CSS\animate-custom.css" />
     <Content Include="CSS\fonts\BebasNeue-webfont.svg" />
     <Content Include="CSS\fonts\Dharma Type Font License.txt" />
@@ -83,15 +86,19 @@
     <Content Include="CSS\overcast\jquery-ui-1.10.3.custom.min.css" />
     <Content Include="CSS\style.css" />
     <Content Include="gestionClient.aspx" />
-    <Content Include="images\arrow_select.jpg" />
     <Content Include="images\back.jpg" />
+    <Content Include="images\backMenu.jpg" />
     <Content Include="images\bg.jpg" />
+    <Content Include="images\calendar.png" />
     <Content Include="images\client.png" />
+    <Content Include="images\delete.png" />
+    <Content Include="images\detail.png" />
     <Content Include="images\gestion.png" />
     <Content Include="images\history.png" />
     <Content Include="images\icone.png" />
     <Content Include="images\logo.png" />
     <Content Include="images\loupe.png" />
+    <Content Include="images\modif.png" />
     <Content Include="images\notif.png" />
     <Content Include="images\phone.png" />
     <Content Include="images\pro.png" />
@@ -100,8 +107,11 @@
     <Content Include="js\jquery-1.9.1.js" />
     <Content Include="js\jquery-ui-1.10.3.custom.js" />
     <Content Include="js\jquery-ui-1.10.3.custom.min.js" />
+    <Content Include="notifClient.aspx" />
     <Content Include="pro.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="admin.aspx" />
   </ItemGroup>
   <ItemGroup>
@@ -111,6 +121,27 @@
     </Compile>
     <Compile Include="client.aspx.designer.cs">
       <DependentUpon>client.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CompteClient\indexClient.aspx.cs">
+      <DependentUpon>indexClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CompteClient\indexClient.aspx.designer.cs">
+      <DependentUpon>indexClient.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ComptePro\indexPro.aspx.cs">
+      <DependentUpon>indexPro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ComptePro\indexPro.aspx.designer.cs">
+      <DependentUpon>indexPro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="histoClient.aspx.cs">
+      <DependentUpon>histoClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="histoClient.aspx.designer.cs">
+      <DependentUpon>histoClient.aspx</DependentUpon>
     </Compile>
     <Compile Include="gestionClient.aspx.cs">
       <DependentUpon>gestionClient.aspx</DependentUpon>
@@ -125,6 +156,13 @@
     </Compile>
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="notifClient.aspx.cs">
+      <DependentUpon>notifClient.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="notifClient.aspx.designer.cs">
+      <DependentUpon>notifClient.aspx</DependentUpon>
     </Compile>
     <Compile Include="pro.aspx.cs">
       <DependentUpon>pro.aspx</DependentUpon>
@@ -173,7 +211,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>49268</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:50098/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

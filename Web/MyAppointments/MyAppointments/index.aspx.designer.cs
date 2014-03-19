@@ -10,24 +10,15 @@
 namespace MyAppointments {
     
     
-    public partial class index {
+    public partial class index2 {
         
         /// <summary>
-        /// Contrôle Head1.
+        /// Contrôle indexAppli.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
-        
-        /// <summary>
-        /// Contrôle gestionClient.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm gestionClient;
+        protected global::System.Web.UI.HtmlControls.HtmlForm indexAppli;
     }
 }

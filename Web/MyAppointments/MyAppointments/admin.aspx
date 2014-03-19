@@ -1,9 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="MyAppointments.index" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="admin.aspx.cs" Inherits="MyAppointments.admin" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head id="Head1" runat="server">
+<head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="icon" href="images/icone.png" />
     <link rel="stylesheet" type="text/css" href="CSS/main.css" />
@@ -22,8 +22,8 @@
                         <h1>Administrateur</h1> 
                         <table id="menu">
                             <tr>
-                                <td><img src="images/client.png" width="120"/></td>
-                                <td><img src="images/pro.png" width="115" /></td>                                   
+                                <td><a href="client.aspx"><img src="images/client.png" width="120"/></a></td>
+                                <td><a href="pro.aspx"><img src="images/pro.png" width="115" /></a></td>                                   
                             </tr>
                             <tr>
                                 <td><label for="cli" class="uname"><a href="client.aspx">Comptes CLIENTS</a></label></td>

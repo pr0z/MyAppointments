@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace MyAppointments
 {
-    public partial class gestionClient : System.Web.UI.Page
+    public partial class histoClient : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

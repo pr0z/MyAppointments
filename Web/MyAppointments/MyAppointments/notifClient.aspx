@@ -1,9 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="MyAppointments.index" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="notifClient.aspx.cs" Inherits="MyAppointments.notifClient" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head id="Head1" runat="server">
+<head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="icon" href="images/icone.png" />
     <link rel="stylesheet" type="text/css" href="CSS/main.css" />
@@ -18,7 +18,7 @@
     <div id="container_demo" >
         <div id="wrapper_list">
             <div id="login" class="animate form">
-                <form id="notifClient" runat="server">
+                <form id="formnotifClient" runat="server">
                     <h1>Notifications de ...</h1> 
                     <textarea class="textarea" rows="10"></textarea>               
                     <p class="change_link_lst">

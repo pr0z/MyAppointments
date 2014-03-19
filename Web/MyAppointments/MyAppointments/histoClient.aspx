@@ -1,9 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="histoClient.aspx.cs" Inherits="MyAppointments.index" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="histoClient.aspx.cs" Inherits="MyAppointments.histoClient" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head id="Head1" runat="server">
+<head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="icon" href="images/icone.png" />
     <link rel="stylesheet" type="text/css" href="CSS/main.css" />
@@ -18,7 +18,7 @@
     <div id="container_demo" >
         <div id="wrapper_list">
             <div id="login" class="animate form">
-                <form id="histoClient" runat="server">
+                <form id="formhistoClient" runat="server">
                    <h1>Historique de ...</h1>    
                     <input class="recherche" name="searchbar" type="text" />
                     <table id="lst_Cli">

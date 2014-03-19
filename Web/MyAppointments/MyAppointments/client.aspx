@@ -1,9 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="MyAppointments.index" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="client.aspx.cs" Inherits="MyAppointments.client" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head id="Head1" runat="server">
+<head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="icon" href="images/icone.png" />
     <link rel="stylesheet" type="text/css" href="CSS/main.css" />
@@ -28,49 +28,16 @@
                             <th>Mail</th>
                             <th>Téléphone</th>
                             <th></th>
-                        </tr>
+                        </tr>                     
                         <tr>
-                            <td>GRAUX</td>
+                            <td><asp:Label ID="nameClient" runat="server" Text="GRAUX"></asp:Label></td>
                             <td>Benjamin</td>
                             <td>benjamin.graux@gmail.com</td>
                             <td>06 12 12 12 12</td>
                             <td>
-                                <a href="/gestionClient.aspx"><img class="icone_Client" src="images/gestion.png" width="30" /></a> 
+                                <a href="/gestionClient.aspx?nom=graux"><img class="icone_Client" src="images/gestion.png" width="30" /></a> 
                                 <a href="/notifClient.aspx"><img class="icone_Client" src="images/notif.png" width="30" /></a> 
                                 <a href="/histoClient.aspx"><img class="icone_Client" src="images/history.png" width="30" /></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>LEICHNIG</td>
-                            <td>Roman</td>
-                            <td>roman.leichnig@gmail.com</td>
-                            <td>06 12 12 12 12</td>
-                            <td>
-                                <a href="#"><img class="icone_Client" src="images/gestion.png" width="30" /></a> 
-                                <a href="#"><img class="icone_Client" src="images/notif.png" width="30" /></a> 
-                                <a href="#"><img class="icone_Client" src="images/history.png" width="30" /></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>WETSTEIN</td>
-                            <td>Julien</td>
-                            <td>julien@gmail.com</td>
-                            <td>06 12 12 12 12</td>
-                            <td>
-                                <a href="#"><img class="icone_Client" src="images/gestion.png" width="30" /></a> 
-                                <a href="#"><img class="icone_Client" src="images/notif.png" width="30" /></a> 
-                                <a href="#"><img class="icone_Client" src="images/history.png" width="30" /></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>DUPONT</td>
-                            <td>Lucie</td>
-                            <td>lucie.dupont@gmail.com</td>
-                            <td>06 12 12 12 12</td>
-                            <td>
-                                <a href="#"><img class="icone_Client" src="images/gestion.png" width="30" /></a> 
-                                <a href="#"><img class="icone_Client" src="images/notif.png" width="30" /></a> 
-                                <a href="#"><img class="icone_Client" src="images/history.png" width="30" /></a>
                             </td>
                         </tr>
                     </table>

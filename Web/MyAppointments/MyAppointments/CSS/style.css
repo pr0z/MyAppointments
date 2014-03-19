@@ -257,11 +257,12 @@ p.signin.button{
 /*styling both submit buttons */
 #wrapper_btn {
     text-align: right;
+    
 }
 #wrapper_btn p.button input{
 	width: 20%;
 	cursor: pointer;	
-	background: #6D139B;
+	background: #6D139B no-repeat;
 	padding: 8px 5px;
 	font-family: 'BebasNeueRegular','Arial Narrow',Arial,sans-serif;
 	color: #fff;

@@ -1,9 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="MyAppointments.index" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="gestionClient.aspx.cs" Inherits="MyAppointments.gestionClient" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head id="Head1" runat="server">
+<head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="icon" href="images/icone.png" />
     <link rel="stylesheet" type="text/css" href="CSS/main.css" />
@@ -18,8 +18,8 @@
     <div id="container_demo" >
         <div id="wrapper_list">
             <div id="login" class="animate form">
-                <form id="gestionClient" runat="server">
-                    <h1>Comptes de ...</h1>     
+                <form id="formgestionClient" runat="server">
+                    <h1>Comptes de <asp:Label ID="compteName" runat="server"></asp:Label></h1>     
                     <table class="modifCli">                 
                         <tr> 
                             <td><label for="gestNum" class="uname">Numéro de Dossier</label></td>
@@ -44,15 +44,22 @@
                     </table>
                     <div id="wrapper_btn" >
                         <p class="button modif"> 
-						    <input type="submit" value="Modifier"/> 
+                            
+						    <input type="submit" class="btnmodif" value="Modifier"/> 
+                            <span style="margin-left: -35px;">
+                                <img src="images/modif.png" width="50" />
+                            </span>
 					    </p>
                         <p class="button supp"> 
-						    <input type="submit" value="Supprimer"/> 
+						    <input type="submit" class="btnsupp" value="Supprimer"/> 
+                            <span style="margin-left: -35px;">
+                                <img src="images/delete.png" width="50" />
+                            </span>
 					    </p>   
                     </div>      
                     <p class="change_link_lst">
                         <a href="/client.aspx" class="to_register">Annuler</a>
-                    </p>
+                    </p>                    
                  </form>
             </div>					
         </div>

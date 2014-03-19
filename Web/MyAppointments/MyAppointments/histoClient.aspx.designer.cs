@@ -10,24 +10,15 @@
 namespace MyAppointments {
     
     
-    public partial class index {
+    public partial class histoClient {
         
         /// <summary>
-        /// Contrôle Head1.
+        /// Contrôle formhistoClient.
         /// </summary>
         /// <remarks>
         /// Champ généré automatiquement.
         /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
-        
-        /// <summary>
-        /// Contrôle histoClient.
-        /// </summary>
-        /// <remarks>
-        /// Champ généré automatiquement.
-        /// Pour modifier, déplacez la déclaration de champ du fichier de concepteur dans le fichier code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm histoClient;
+        protected global::System.Web.UI.HtmlControls.HtmlForm formhistoClient;
     }
 }
