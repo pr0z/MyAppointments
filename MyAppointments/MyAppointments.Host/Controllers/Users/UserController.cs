@@ -1,6 +1,7 @@
-﻿using DataAccessLayer.CRUD;
-using DataContracts;
+﻿using MyAppointments.DataAccessLayer.CRUD;
+using MyAppointments.DataContracts;
 using System;
+using System.Collections.Generic;
 using System.Web.Http;
 
 namespace MyAppointments.Host.Controllers
@@ -14,6 +15,15 @@ namespace MyAppointments.Host.Controllers
             using (USERScrud db = new USERScrud())
             {
                 return db.GetUserByMail(mail);
+            }
+        }
+
+        [HttpGet, HttpPost, Route("GetAllUsers")]
+        public List<USERSbl> GetAllUsers()
+        {
+            using (USERScrud db = new USERScrud())
+            {
+                return db.GetAllUsers();
             }
         }
     }

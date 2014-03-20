@@ -1,0 +1,5 @@
+D:\Dev Cours\Git\MyAppointments\MyAppointments\DataContracts\bin\Debug\DataContracts.dll
+D:\Dev Cours\Git\MyAppointments\MyAppointments\DataContracts\bin\Debug\DataContracts.pdb
+D:\Dev Cours\Git\MyAppointments\MyAppointments\DataContracts\obj\Debug\MyAppointments.DataContracts.csprojResolveAssemblyReference.cache
+D:\Dev Cours\Git\MyAppointments\MyAppointments\DataContracts\obj\Debug\DataContracts.dll
+D:\Dev Cours\Git\MyAppointments\MyAppointments\DataContracts\obj\Debug\DataContracts.pdb

@@ -1,0 +1,5 @@
+D:\Dev Cours\Git\MyAppointments\MyAppointments\Common\bin\Debug\Common.dll
+D:\Dev Cours\Git\MyAppointments\MyAppointments\Common\bin\Debug\Common.pdb
+D:\Dev Cours\Git\MyAppointments\MyAppointments\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+D:\Dev Cours\Git\MyAppointments\MyAppointments\Common\obj\Debug\Common.dll
+D:\Dev Cours\Git\MyAppointments\MyAppointments\Common\obj\Debug\Common.pdb

@@ -53,13 +53,13 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Common\Common.csproj">
+    <ProjectReference Include="..\Common\MyAppointments.Common.csproj">
       <Project>{4365c574-248a-420b-b374-da04c8257df7}</Project>
-      <Name>Common</Name>
+      <Name>MyAppointments.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DataContracts\DataContracts.csproj">
+    <ProjectReference Include="..\DataContracts\MyAppointments.DataContracts.csproj">
       <Project>{37e9f37e-e51e-4dc7-b502-c802a5841639}</Project>
-      <Name>DataContracts</Name>
+      <Name>MyAppointments.DataContracts</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

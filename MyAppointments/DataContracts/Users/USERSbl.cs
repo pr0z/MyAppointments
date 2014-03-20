@@ -5,36 +5,36 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataContracts
+namespace MyAppointments.DataContracts
 {
     [DataContract]
     public class USERSbl
     {
-        [DataMember]
+        [DataMember(Name = "Id")]
         public int Id { get; set; }
 
-        [DataMember]
+        [DataMember(Name = "FirstName")]
         public string FirstName { get; set; }
 
-        [DataMember]
+        [DataMember(Name = "LastName")]
         public string LastName { get; set; }
 
-        [DataMember]
+        [DataMember(Name = "BirthDate")]
         public DateTime BirthDate { get; set; }
 
-        [DataMember]
+        [DataMember(Name = "Email")]
         public string Email { get; set; }
 
-        [DataMember]
+        [DataMember(Name = "Password")]
         public string Password { get; set; }
 
-        [DataMember]
+        [DataMember(Name = "Phone")]
         public string Phone { get; set; }
 
-        [DataMember]
+        [DataMember(Name = "CreationDate")]
         public DateTime CreationDate { get; set; }
 
-        [DataMember]
+        [DataMember(Name = "IdLocation")]
         public int IdLocation { get; set; }
     }
 }

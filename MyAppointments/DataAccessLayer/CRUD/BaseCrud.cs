@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessLayer.CRUD
+namespace MyAppointments.DataAccessLayer.CRUD
 {
     public class BaseCrud : IDisposable
     {

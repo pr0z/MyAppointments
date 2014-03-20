@@ -1,0 +1,11 @@
+D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments\bin\Debug\MyAppointments.pdb
+D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments\obj\Debug\MyAppointments.csprojResolveAssemblyReference.cache
+D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments\obj\Debug\MyAppointments.pdb
+D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments\bin\Debug\DataContracts.dll
+D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments\bin\Debug\MyAppointments.Business.dll
+D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments\bin\Debug\DataContracts.pdb
+D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments\bin\Debug\MyAppointments.Business.pdb
+D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments\bin\Debug\MyAppointments.exe
+D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments\obj\Debug\MyAppointments.exe
+D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments\bin\Debug\Newtonsoft.Json.dll
+D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments\bin\Debug\Newtonsoft.Json.xml

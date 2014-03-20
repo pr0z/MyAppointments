@@ -93,13 +93,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+    <ProjectReference Include="..\DataAccessLayer\MyAppointments.DataAccessLayer.csproj">
       <Project>{49bd0665-b2b5-4c88-8cb1-8936e4e73e45}</Project>
-      <Name>DataAccessLayer</Name>
+      <Name>MyAppointments.DataAccessLayer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DataContracts\DataContracts.csproj">
+    <ProjectReference Include="..\DataContracts\MyAppointments.DataContracts.csproj">
       <Project>{37e9f37e-e51e-4dc7-b502-c802a5841639}</Project>
-      <Name>DataContracts</Name>
+      <Name>MyAppointments.DataContracts</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

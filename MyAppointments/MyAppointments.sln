@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyAppointments", "MyAppointments\MyAppointments.csproj", "{03B0B33A-4061-4E3A-A1A7-4AFF2A9437CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{49BD0665-B2B5-4C88-8CB1-8936E4E73E45}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyAppointments.DataAccessLayer", "DataAccessLayer\MyAppointments.DataAccessLayer.csproj", "{49BD0665-B2B5-4C88-8CB1-8936E4E73E45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataContracts", "DataContracts\DataContracts.csproj", "{37E9F37E-E51E-4DC7-B502-C802A5841639}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyAppointments.DataContracts", "DataContracts\MyAppointments.DataContracts.csproj", "{37E9F37E-E51E-4DC7-B502-C802A5841639}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyAppointments.Host", "MyAppointments.Host\MyAppointments.Host.csproj", "{B1165304-043D-4214-8541-0C39BAB9D7DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{4365C574-248A-420B-B374-DA04C8257DF7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyAppointments.Common", "Common\MyAppointments.Common.csproj", "{4365C574-248A-420B-B374-DA04C8257DF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyAppointments.Business", "MyAppointments.Business\MyAppointments.Business.csproj", "{55871C59-C5B8-487C-90AE-B2E3DA000FED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +39,10 @@ Global
 		{4365C574-248A-420B-B374-DA04C8257DF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4365C574-248A-420B-B374-DA04C8257DF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4365C574-248A-420B-B374-DA04C8257DF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55871C59-C5B8-487C-90AE-B2E3DA000FED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55871C59-C5B8-487C-90AE-B2E3DA000FED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55871C59-C5B8-487C-90AE-B2E3DA000FED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55871C59-C5B8-487C-90AE-B2E3DA000FED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

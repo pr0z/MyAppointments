@@ -8,10 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
-using DataContracts;
-using Common;
+using MyAppointments.DataContracts;
+using MyAppointments.Common;
 
-namespace DataAccessLayer.CRUD
+namespace MyAppointments.DataAccessLayer.CRUD
 {
     public class USERScrud : BaseCrud
     {
@@ -20,6 +20,16 @@ namespace DataAccessLayer.CRUD
             Dictionary<string, string> parameters = new Dictionary<string,string>();
             parameters.Add("@AI_USR_EMAIL", mail);
             var result = this.MapUSERSbl(this.ToDataReader("USR_GetUsersByMail", parameters)).FirstOrDefault();
+            if (result != null)
+                return result;
+
+            return null;
+        }
+
+        public List<USERSbl> GetAllUsers()
+        {
+            Dictionary<string, string> parameters = new Dictionary<string, string>();
+            var result = this.MapUSERSbl(this.ToDataReader("USR_GetAllUsers", parameters));
             if (result != null)
                 return result;
 
