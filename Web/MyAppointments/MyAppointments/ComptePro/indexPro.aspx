@@ -52,6 +52,7 @@
 							<label for="loginkeeping">Se souvenir de moi</label>
 						</p>
                         <p class="login button"> 
+                            <a href="../index.aspx"><input type="button" value="Quitter" runat="server" /></a>
                             <asp:Button ID="connexion" text="Connexion" runat="server" OnClick="OnClickConnexion" />
 						</p>
                         <p class="change_link">
@@ -62,47 +63,43 @@
                 </div>
                 <div id="register" class="animate form">
                     <form  action="index.aspx" autocomplete="on"> 
-                        <h1> Inscription</h1>                    
-                        <table id="menu">
-                            <tr>
-                                <td><label for="typesignup1" >CLIENT</label></td>
-                                <td><a href="#toregister" class="to_register"><input id="typesignup1" name="type" type="radio" checked="checked" required="required" value="1"/></a></td>
-                                <td><label for="typesignup1" >PROFESSIONEL</label></td>
-                                <td><a href="#toregister2" class="to_register2"><input id="typesignup2" name="type" type="radio" required="required" value="2" /></a></td>
-                            </tr>
-                        </table>                                       
+                        <h1> Inscription</h1>                                                                            
                         <p> 
-                            <label for="usernamesignup" class="uname" data-icon="u">Nom</label>
-                            <input id="usernamesignup" name="usernamesignup" required="required" type="text" />
+                            <label for="prosirensignup" class="uname" data-icon="u">N° SIREN</label>
+                            <input id="prosirensignup" name="prosirensignup" required="required" type="text" />
                         </p>
                         <p> 
-                            <label for="usersurnamesignup" class="uname" data-icon="u">Prénom</label>
-                            <input id="usersurnamesignup" name="usersurnamesignup" required="required" type="text" />
+                            <label for="pronamesignup" class="uname" data-icon="u">Nom</label>
+                            <input id="pronamesignup" name="pronamesignup" required="required" type="text" />
                         </p>
                         <p> 
-                            <label for="usertelsignup" class="uname">Numéro de téléphone</label>
-                            <input id="usersurtelsignup" name="usersurtelsignup" required="required" type="text" />
-                            <img src="images/phone.png" class="icon_phone"/> 
+                            <label for="protelsignup" class="uname">Numéro de téléphone</label>
+                            <input id="protelsignup" name="protelsignup" required="required" type="text" />
+                            <img src="../images/phone.png" class="icon_phone"/> 
                         </p>
                         <p> 
-                            <label for="userbirthsignup" class="uname">Date de naissance</label><br />
-                            <input id="datepicker" required="required" type="text" readonly="readonly" />
-                            <img src="images/calendar.png" class="icon_calendar"/>
+                            <label for="promailsignup" class="youmail" data-icon="e" >E-mail</label>
+                            <input id="promailsignup" name="promailsignup" required="required" type="email" /> 
                         </p>
                         <p> 
-                            <label for="emailsignup" class="youmail" data-icon="e" >E-mail</label>
-                            <input id="emailsignup" name="emailsignup" required="required" type="email" /> 
+                            <label for="procontactnamesignup" class="uname" data-icon="u" >Nom Contact</label>
+                            <input id="procontactnamesignup" name="procontactnamesignup" required="required" type="email" /> 
                         </p>
                         <p> 
-                            <label for="passwordsignup" class="youpasswd" data-icon="p">Choisir un mot de passe </label>
-                            <input id="passwordsignup" name="passwordsignup" required="required" type="password" />
+                            <label for="procontactsurnamesignup" class="uname" data-icon="u" >Prénom Contact</label>
+                            <input id="procontactsurnamesignup" name="procontactsurnamesignup" required="required" type="email" /> 
                         </p>
                         <p> 
-                            <label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Confirmez votre mot de passe </label>
-                            <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password"/>
+                            <label for="propasswordsignup" class="youpasswd" data-icon="p">Choisir un mot de passe </label>
+                            <input id="propasswordsignup" name="propasswordsignup" required="required" type="password" />
+                        </p>
+                        <p> 
+                            <label for="propasswordsignup_confirm" class="youpasswd" data-icon="p">Confirmez votre mot de passe </label>
+                            <input id="propasswordsignup_confirm" name="propasswordsignup_confirm" required="required" type="password"/>
                             <asp:Label ID="labelTest" runat="server" Text=""></asp:Label>
                         </p>
                         <p class="signin button"> 
+                            <a href="../index.aspx"><input type="button" value="Quitter" runat="server" /></a>
 							<input id="Submit1" type="submit" value="S'inscrire" runat="server" onclick="OnClickInscription"/> 
 						</p>
                         <p class="change_link">  

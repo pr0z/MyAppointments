@@ -51,8 +51,9 @@
 							<label for="loginkeeping">Se souvenir de moi</label>
 						</p>
                         <p class="login button"> 
+                            <a href="../index.aspx"><input type="button" value="Quitter" runat="server" /></a> 
                             <asp:Button ID="connexion" text="Connexion" runat="server" OnClick="OnClickConnexion" />
-						</p>
+						</p>                  
                         <p class="change_link">
 							Pas encore membre ?
 							<a href="#toregister" class="to_register">Inscrivez-vous</a>
@@ -61,15 +62,7 @@
                 </div>
                 <div id="register" class="animate form">
                     <form  action="index.aspx" autocomplete="on"> 
-                        <h1> Inscription</h1>                    
-                        <table id="menu">
-                            <tr>
-                                <td><label for="typesignup1" >CLIENT</label></td>
-                                <td><a href="#toregister" class="to_register"><input id="typesignup1" name="type" type="radio" checked="checked" required="required" value="1"/></a></td>
-                                <td><label for="typesignup1" >PROFESSIONEL</label></td>
-                                <td><a href="#toregister2" class="to_register2"><input id="typesignup2" name="type" type="radio" required="required" value="2" /></a></td>
-                            </tr>
-                        </table>                                       
+                        <h1> Inscription</h1>                                                           
                         <p> 
                             <label for="usernamesignup" class="uname" data-icon="u">Nom</label>
                             <input id="usernamesignup" name="usernamesignup" required="required" type="text" />
@@ -81,12 +74,12 @@
                         <p> 
                             <label for="usertelsignup" class="uname">Numéro de téléphone</label>
                             <input id="usersurtelsignup" name="usersurtelsignup" required="required" type="text" />
-                            <img src="images/phone.png" class="icon_phone"/> 
+                            <img src="../images/phone.png" class="icon_phone"/> 
                         </p>
                         <p> 
                             <label for="userbirthsignup" class="uname">Date de naissance</label><br />
                             <input id="datepicker" required="required" type="text" readonly="readonly" />
-                            <img src="images/calendar.png" class="icon_calendar"/>
+                            <img src="../images/calendar.png" class="icon_calendar"/>
                         </p>
                         <p> 
                             <label for="emailsignup" class="youmail" data-icon="e" >E-mail</label>
@@ -102,6 +95,7 @@
                             <asp:Label ID="labelTest" runat="server" Text=""></asp:Label>
                         </p>
                         <p class="signin button"> 
+                            <a href="../index.aspx"><input type="button" value="Quitter" runat="server" /></a>
 							<input id="Submit1" type="submit" value="S'inscrire" runat="server" onclick="OnClickInscription"/> 
 						</p>
                         <p class="change_link">  
