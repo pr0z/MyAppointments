@@ -1,5 +1,4 @@
 D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments.Host\bin\Debug\MyAppointments.Host.exe.config
-D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments.Host\obj\Debug\MyAppointments.Host.csprojResolveAssemblyReference.cache
 D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments.Host\bin\Debug\MyAppointments.Host.exe
 D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments.Host\bin\Debug\MyAppointments.Host.pdb
 D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments.Host\bin\Debug\DataAccessLayer.dll
@@ -37,5 +36,8 @@ D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments.Host\bin\Debug\Mic
 D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments.Host\bin\Debug\Microsoft.Practices.ServiceLocation.xml
 D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments.Host\bin\Debug\Microsoft.Practices.Unity.xml
 D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments.Host\bin\Debug\Microsoft.Practices.Unity.Interception.xml
+D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments.Host\obj\Debug\MyAppointments.Host.csprojResolveAssemblyReference.cache
 D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments.Host\obj\Debug\MyAppointments.Host.exe
 D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments.Host\obj\Debug\MyAppointments.Host.pdb
+D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments.Host\bin\Debug\MyAppointments.Business.dll
+D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments.Host\bin\Debug\MyAppointments.Business.pdb

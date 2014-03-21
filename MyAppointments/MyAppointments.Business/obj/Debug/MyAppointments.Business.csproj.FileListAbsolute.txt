@@ -1,9 +1,13 @@
-D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments.Business\obj\Debug\MyAppointments.Business.csprojResolveAssemblyReference.cache
 D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments.Business\bin\Debug\MyAppointments.Business.dll
 D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments.Business\bin\Debug\MyAppointments.Business.pdb
 D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments.Business\bin\Debug\DataContracts.dll
+D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments.Business\bin\Debug\Newtonsoft.Json.dll
 D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments.Business\bin\Debug\DataContracts.pdb
+D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments.Business\bin\Debug\Newtonsoft.Json.xml
+D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments.Business\obj\Debug\MyAppointments.Business.csprojResolveAssemblyReference.cache
 D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments.Business\obj\Debug\MyAppointments.Business.dll
 D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments.Business\obj\Debug\MyAppointments.Business.pdb
-D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments.Business\bin\Debug\Newtonsoft.Json.dll
-D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments.Business\bin\Debug\Newtonsoft.Json.xml
+D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments.Business\bin\Debug\System.Net.Http.Formatting.dll
+D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments.Business\bin\Debug\System.Net.Http.Formatting.xml
+D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments.Business\bin\Debug\FiddlerCore.dll
+D:\Dev Cours\Git\MyAppointments\MyAppointments\MyAppointments.Business\bin\Debug\FiddlerCore.xml

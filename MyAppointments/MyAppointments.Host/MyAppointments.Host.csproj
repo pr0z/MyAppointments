@@ -101,6 +101,10 @@
       <Project>{37e9f37e-e51e-4dc7-b502-c802a5841639}</Project>
       <Name>MyAppointments.DataContracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MyAppointments.Business\MyAppointments.Business.csproj">
+      <Project>{55871c59-c5b8-487c-90ae-b2e3da000fed}</Project>
+      <Name>MyAppointments.Business</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

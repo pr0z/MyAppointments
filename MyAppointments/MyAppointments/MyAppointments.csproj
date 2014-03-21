@@ -7,7 +7,7 @@
     <ProjectGuid>{03B0B33A-4061-4E3A-A1A7-4AFF2A9437CD}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MyAppointments</RootNamespace>
+    <RootNamespace>MyAppointmentss</RootNamespace>
     <AssemblyName>MyAppointments</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -55,6 +55,9 @@
       <Project>{55871c59-c5b8-487c-90ae-b2e3da000fed}</Project>
       <Name>MyAppointments.Business</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

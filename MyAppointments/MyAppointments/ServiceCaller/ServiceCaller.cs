@@ -12,7 +12,23 @@ namespace MyAppointments
     {
         public static void ParseJsonResult()
         {
-            USERSbl myUser = JsonParser.SendRequest<USERSbl>();
+            //List<USERSbl> listUser = JsonParser.ToObjectList<USERSbl>("Users", "GetAllUsers");
+            //USERSbl user = JsonParser.ToObject<USERSbl>("Users", "GetUserByMail", "roman.leichnig@gmail.com");
+
+            USERSbl register = new USERSbl()
+            {
+                Id = 3,
+                FirstName = "Paul",
+                LastName = "Dupont",
+                Email = "paul.dupont@gmail.com",
+                Password = "toto",
+                Phone = "0607080910",
+                BirthDate = new DateTime(1976, 6, 9),
+                IdLocation = 1,
+                CreationDate = DateTime.Now
+            };
+
+            JsonParser.PostRequest("Users", "RegisterUser", register);
         }
     }
 }
