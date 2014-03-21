@@ -1,4 +1,5 @@
-﻿using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
+﻿using Common.Enums;
+using Microsoft.Practices.EnterpriseLibrary.Data.Sql;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -13,6 +14,13 @@ namespace MyAppointments.DataAccessLayer.CRUD
 {
     public class BaseCrud : IDisposable
     {
+        public State ObjectState { get; set; }
+
+        public BaseCrud()
+        {
+            this.ObjectState = State.None;
+        }
+
         public IDataReader ToDataReader(string storedProcedureName, Dictionary<string, string> parameters)
         {
             using (SqlCommand cmd = new SqlCommand(storedProcedureName))

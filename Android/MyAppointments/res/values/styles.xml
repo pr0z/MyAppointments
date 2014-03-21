@@ -1,0 +1,83 @@
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+<!-- BUTTON -->
+    <style name="Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_26</item>
+<!--         <item name="android:background">@drawable/button_yellow_selector</item> -->
+	</style>
+	<style name="ButtonHorizontal" parent="Button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+	</style>
+	
+<!-- FORM -->
+	<style name="FormLabel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">left</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_22</item>
+        <item name="android:layout_marginTop">20dp</item>
+	</style>
+	<style name="FormValue">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">left</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/text_22</item>
+	</style>
+	<style name="FormRadioGroup">
+	    <item name="android:orientation">horizontal</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+	</style>
+	<style name="FormRadio">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+	</style>
+	
+<!-- CALENDAR -->
+	<style name="Calendar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_gravity">center</item>
+	</style>
+	<style name="CalendarCell">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/cell_bg</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">10dp</item>
+	</style>
+	
+</resources>

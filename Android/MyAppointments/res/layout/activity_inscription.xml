@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/activity_background"
+        android:orientation="vertical"
+        android:padding="20dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/label_createaccount"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_26" />
+
+        <TextView
+            style="@style/FormLabel"
+            android:text="@string/label_status" />
+
+        <RadioGroup
+            android:id="@+id/radiogroup_status"
+            style="@style/FormRadioGroup" >
+
+            <RadioButton
+                android:id="@+id/radio_status_client"
+                style="@style/FormRadio"
+                android:checked="true"
+                android:tag="client"
+                android:text="@string/label_client" />
+
+            <RadioButton
+                android:id="@+id/radio_status_pro"
+                style="@style/FormRadio"
+                android:tag="pro"
+                android:text="@string/label_pro" />
+        </RadioGroup>
+
+        <ViewSwitcher
+            android:id="@+id/viewSwitcher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:measureAllChildren="false"
+            android:inAnimation="@android:anim/slide_in_left" >
+
+            <LinearLayout
+                android:id="@+id/viewClient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    style="@style/FormLabel"
+                    android:text="@string/label_firstname" />
+                <EditText
+                    android:id="@+id/edit_firstname"
+                    style="@style/FormValue"
+                    android:inputType="text" />
+
+                <TextView
+                    style="@style/FormLabel"
+                    android:text="@string/label_lastname" />
+                <EditText
+                    android:id="@+id/edit_lastname"
+                    style="@style/FormValue"
+                    android:inputType="text" />
+
+                <!-- <TextView android:text="@string/label_birth" style="@style/FormLabel" /> -->
+                <!-- <EditText android:id="@+id/edit_birth" style="@style/Formdatepicker" /> -->
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/viewPro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+                
+                <TextView
+                    style="@style/FormLabel"
+                    android:text="@string/label_company_name" />
+                <EditText
+                    android:id="@+id/edit_company_name"
+                    style="@style/FormValue"
+                    android:inputType="text" />
+                
+                <TextView
+                    style="@style/FormLabel"
+                    android:text="@string/label_num_siren" />
+                <EditText
+                    android:id="@+id/edit_num_siren"
+                    style="@style/FormValue"
+                    android:inputType="text" />
+                
+                <TextView
+                    style="@style/FormLabel"
+                    android:text="@string/label_postal_address" />
+                <EditText
+                    android:id="@+id/edit_address"
+                    style="@style/FormValue"
+                    android:inputType="text" />
+                
+                <TextView
+                    style="@style/FormLabel"
+                    android:text="@string/label_contact_firstname" />
+                <EditText
+                    android:id="@+id/edit_contact_firstname"
+                    style="@style/FormValue"
+                    android:inputType="text" />
+                
+                <TextView
+                    style="@style/FormLabel"
+                    android:text="@string/label_contact_lastname" />
+                <EditText
+                    android:id="@+id/edit_contact_lastname"
+                    style="@style/FormValue"
+                    android:inputType="text" />
+            </LinearLayout>
+        </ViewSwitcher>
+        
+        <TextView
+            style="@style/FormLabel"
+            android:text="@string/label_email" />
+        <EditText
+            android:id="@+id/edit_email"
+            style="@style/FormValue"
+            android:inputType="textEmailAddress" />
+
+        <TextView
+            style="@style/FormLabel"
+            android:text="@string/label_phone" />
+        <EditText
+            android:id="@+id/edit_phone"
+            style="@style/FormValue"
+            android:inputType="phone" />
+
+        <TextView
+            style="@style/FormLabel"
+            android:text="@string/label_password" />
+        <EditText
+            android:id="@+id/edit_password"
+            style="@style/FormValue"
+            android:inputType="textPassword" />
+
+        <TextView
+            style="@style/FormLabel"
+            android:text="@string/label_passwordconfirm" />
+        <EditText
+            android:id="@+id/edit_passwordconfirm"
+            style="@style/FormValue"
+            android:inputType="textPassword" />
+        
+		<Button
+            android:id="@+id/button_create"
+            style="@style/Button"
+            android:layout_marginTop="50dp"
+            android:onClick="createAccount"
+            android:text="@string/button_inscription" />
+    
+    </LinearLayout>
+</ScrollView>

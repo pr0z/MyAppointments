@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="fr.esgi.myappointments"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="19" />
+    
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:name="AppointmentsApp"
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="ConnectionActivity" android:label="@string/app_name" android:screenOrientation="unspecified" android:configChanges="orientation">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="InscriptionActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name="ForgetPasswordActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name="HomeActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name="CalendarActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="CreateTaskActivity"
+            android:label="@string/app_name" >
+        </activity>
+        
+<!--         <receiver android:name=".service.BootReceiver" > -->
+<!--          	<intent-filter> -->
+<!--            	 	<action android:name="android.intent.action.BOOT_COMPLETED" /> -->
+<!--          	</intent-filter> -->
+<!--     	</receiver> -->
+        <receiver android:name=".service.NotifReceiver" />
+        <service android:name=".service.NotifService" />
+    </application>
+
+</manifest>

@@ -15,6 +15,7 @@ namespace MyAppointments.DataAccessLayer.CRUD
 {
     public class USERScrud : BaseCrud
     {
+        #region Read
         public USERSbl GetUserByMail(string mail)
         {
             Dictionary<string, string> parameters = new Dictionary<string,string>();
@@ -35,6 +36,14 @@ namespace MyAppointments.DataAccessLayer.CRUD
 
             return null;
         }
+        #endregion
+
+        #region Write
+        public USERSbl SaveUser(USERSbl user)
+        { 
+            
+        }
+        #endregion
 
         private List<USERSbl> MapUSERSbl(IDataReader dr)
         {

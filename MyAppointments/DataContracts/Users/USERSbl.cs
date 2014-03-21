@@ -10,6 +10,12 @@ namespace MyAppointments.DataContracts
     [DataContract]
     public class USERSbl
     {
+        public USERSbl()
+            : base()
+        {
+
+        }
+
         [DataMember(Name = "Id")]
         public int Id { get; set; }
 
