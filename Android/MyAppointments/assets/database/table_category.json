@@ -1,0 +1,24 @@
+{
+	"categories": [
+		{ "serverId": "1", "label": "Service à la maison" },
+		{ "serverId": "2", "label": "Santé" },
+		{ "serverId": "3", "label": "Loisir" },
+		{ "serverId": "4", "label": "Administratif" },
+		{ "serverId": "5", "label": "Divers" }
+	],
+	"subcategories": [
+		{ "parentId": "1", "serverId": "6", "label": "Serrurier" },
+		{ "parentId": "1", "serverId": "7", "label": "Maçon" },
+		{ "parentId": "1", "serverId": "8", "label": "Electricien" },
+		{ "parentId": "1", "serverId": "9", "label": "Couvreur" },
+		{ "parentId": "1", "serverId": "10", "label": "Ramoneur" },
+		{ "parentId": "1", "serverId": "11", "label": "Peintre" },
+		{ "parentId": "1", "serverId": "12", "label": "Jardinier" },
+		{ "parentId": "1", "serverId": "13", "label": "Plombier" },
+		{ "parentId": "2", "serverId": "14", "label": "Médecin" },
+		{ "parentId": "2", "serverId": "15", "label": "Dentiste" },
+		{ "parentId": "2", "serverId": "16", "label": "Cardiologue" },
+		{ "parentId": "2", "serverId": "17", "label": "Prise de sang" },
+		{ "parentId": "2", "serverId": "18", "label": "Radio" }
+	]
+}
