@@ -40,6 +40,8 @@ public class InscriptionActivity extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_inscription);
 		
+		getActionBar().setTitle(R.string.title_inscription);
+		
 		//Client
 		editClientFirstname = (EditText) findViewById(R.id.edit_firstname);
 		editClientLastname = (EditText) findViewById(R.id.edit_lastname);

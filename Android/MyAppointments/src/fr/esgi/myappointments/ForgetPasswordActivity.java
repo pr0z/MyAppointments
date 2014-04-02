@@ -24,6 +24,8 @@ public class ForgetPasswordActivity extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_forget_password);
 		
+		getActionBar().setTitle(R.string.title_forget_password);
+		
 		editEmail = (EditText) findViewById(R.id.edit_email);
 	}
 	

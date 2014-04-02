@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
+import fr.esgi.myappointments.util.PrefsManager;
 
 public class ConnectionActivity extends Activity {
 
@@ -26,6 +27,7 @@ public class ConnectionActivity extends Activity {
 		setContentView(R.layout.activity_connection);
 		
 		getActionBar().setTitle(R.string.title_connection);
+//		getActionBar().hide();
 		
 		editEmail = (EditText) findViewById(R.id.edit_email);
 		editPassword = (EditText) findViewById(R.id.edit_password);
@@ -50,7 +52,7 @@ public class ConnectionActivity extends Activity {
 		
 		if (checkFields()) {
 			if (email.matches("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[a-zA-Z]{2,4}$")) {
-				if (AppointmentsApp.httpRequest(this))
+//				if (AppointmentsApp.httpRequest(this))
 					authentification(email, password);
 			} else
 				Crouton.makeText(this, R.string.toast_error_email, Style.ALERT).show();
@@ -60,7 +62,7 @@ public class ConnectionActivity extends Activity {
 	
 	private void savePreferences() {
 		//give form data in SharedPreferences
-		SharedPreferences settings = getSharedPreferences(AppointmentsApp.PREFS_USER, 0);
+		SharedPreferences settings = getSharedPreferences(PrefsManager.PREFS_USER, 0);
 		SharedPreferences.Editor editor = settings.edit();
 		
 //		editor.putInt(User.ID_KEY, 1);

@@ -42,6 +42,8 @@ public class CalendarActivity extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_calendar);
 		
+		getActionBar().setTitle(R.string.title_home);
+		
 		caldroidFragment = new CaldroidFragment();
 		caldroidFragment.setCaldroidListener(calendarListener);
 		
