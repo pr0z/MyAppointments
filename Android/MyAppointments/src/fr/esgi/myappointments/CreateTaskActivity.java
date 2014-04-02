@@ -1,11 +1,11 @@
 package fr.esgi.myappointments;
 
+import java.util.HashMap;
 import java.util.List;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,8 +13,12 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 import fr.esgi.myappointments.business.Category;
-import fr.esgi.myappointments.util.ParserAssets;
+import fr.esgi.myappointments.business.CategoryDao;
+import fr.esgi.myappointments.business.CategoryDao.Properties;
+import fr.esgi.myappointments.business.DaoSession;
+import fr.esgi.myappointments.business.Task;
 
 public class CreateTaskActivity extends Activity {
 
@@ -26,7 +30,8 @@ public class CreateTaskActivity extends Activity {
 //	private CheckBox checkRememberMe;
 	private Spinner spinCategory, spinSubcategory;
 	
-	private SparseArray<Integer> mapSubcategory;
+	private CategoryDao categDao;
+	private HashMap<Long, List<Category>> mapSubcategory;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,11 +45,10 @@ public class CreateTaskActivity extends Activity {
 		spinCategory = (Spinner) findViewById(R.id.spinner_category);
 		spinSubcategory = (Spinner) findViewById(R.id.spinner_subcategory);
 		
-		initCategoryList();
+		DaoSession daoSession = AppointmentsApp.getDBSession(this);
+		categDao = daoSession.getCategoryDao();
 		
-		AppointmentsApp.recreateDB(this);
-//		List<Category> listCateg = ParserAssets.loadCategories(this);
-//		Log.v(TAG, "CATEG "+listCateg.size());
+		initCategoryList();
 	}
 	
 	@Override 
@@ -54,51 +58,84 @@ public class CreateTaskActivity extends Activity {
 	
 	@SuppressLint("UseSparseArrays")
 	private void initCategoryList() {
-		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.array_category, android.R.layout.simple_spinner_item);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		spinCategory.setAdapter(adapter);
+		List<Category> listCateg = categDao.queryBuilder().where(Properties.ParentCategoryId.isNull()).list();
+
+		initSpinnerAdapter(spinCategory, listCateg);
 		
 		spinCategory.setOnItemSelectedListener(new OnItemSelectedListener() {
 			@Override
 			public void onItemSelected(AdapterView<?> adapter, View view, int pos, long id) {
-				initSubcategoryList(pos);
+				Category cat = (Category) adapter.getItemAtPosition(pos);
+				initSubcategoryList(cat.getId());
 			}
 			@Override
-			public void onNothingSelected(AdapterView<?> arg0) {
-			}
+			public void onNothingSelected(AdapterView<?> arg0) {}
 		});
 		
-		//Init Subcategory
-		mapSubcategory = new SparseArray<Integer>();
-		mapSubcategory.put(0, R.array.array_category_house);
-		mapSubcategory.put(1, R.array.array_category_health);
-		mapSubcategory.put(2, R.array.array_category_hobby);
-		mapSubcategory.put(3, R.array.array_category_administration);
-		mapSubcategory.put(4, R.array.array_category_diverse);
+		initSubcategories(listCateg);
 	}
 	
-	private void initSubcategoryList(int cat) {
-		int idArray = mapSubcategory.get(cat);
-		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, idArray, android.R.layout.simple_spinner_item);
-		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		spinSubcategory.setAdapter(adapter);
+	private void initSubcategories(List<Category> listCateg) {
+		//Init Subcategory
+		mapSubcategory = new HashMap<Long, List<Category>>();
+		
+		List<Category> listSubcat = categDao.queryBuilder()
+				.where(Properties.ParentCategoryId.isNotNull())
+				.list();
+		
+		for (Category cat : listCateg) {
+			//Search correct Subcategory List
+			List<Category> listSubcateg = categDao.queryBuilder()
+					.where(Properties.ParentCategoryId.isNotNull(), 
+							Properties.ParentCategoryId.eq(cat.getId()))
+					.list();
+			
+			mapSubcategory.put(cat.getId(), listSubcateg);
+		}
+	}
+	
+	private void initSubcategoryList(Long cat) {
+		List<Category> listSubcateg = mapSubcategory.get(cat);
+		
+		initSpinnerAdapter(spinSubcategory, listSubcateg);
+	}
+	
+	private void initSpinnerAdapter(Spinner spinner, List<Category> listCateg) {
+		if (listCateg != null) {
+			//Create Adapter
+			ArrayAdapter spinnerArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, listCateg.toArray());
+			spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+	//		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.array_category, android.R.layout.simple_spinner_item);
+			
+			spinner.setAdapter(spinnerArrayAdapter);
+		}
 	}
 	
 	public void createTask(View v) {
-		String title = editTitle.getText().toString();
-		String desc = editDesc.getText().toString();
-//		Category categ = spinCategory.getSelectedItem();
-//		Category subcateg = spinSubcategory.getSelectedItem();
+		if (checkFields()) {
+			String title = editTitle.getText().toString();
+			String desc = editDesc.getText().toString();
+			Category categ = (Category) spinCategory.getSelectedItem();
+			Category subcateg = (Category) spinSubcategory.getSelectedItem();
+			
+			//TODO Create new Task and save in DB
+	//		Task newTask = new Task(id, serverId, title, desc, dateBegin, dateEnd, categoryId, companyId)
+			Toast.makeText(this, title+" "+desc+" "+categ.getLabel()+" "+subcateg.getLabel(), Toast.LENGTH_LONG).show();
+		}
 	}
 	
 	private boolean checkFields() {
-//		email = editEmail.getText().toString();
-//		password = editPassword.getText().toString();
-//		
+		String title = editTitle.getText().toString();
+		String desc = editDesc.getText().toString();
+		Category categ = (Category) spinCategory.getSelectedItem();
+		Category subcateg = (Category) spinSubcategory.getSelectedItem();
+		
 		boolean isOk = true;
-//		
-//		isOk &= email != null && email.length()> 0;
-//		isOk &= password != null && password.length() > 0;
+		
+		isOk &= title != null && title.length() > 0;
+//		isOk &= desc != null && desc.length() > 0;
+		isOk &= categ != null;
+		isOk &= subcateg != null;
 		
 		return isOk;
 	}

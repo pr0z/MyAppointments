@@ -256,6 +256,11 @@ public class Task implements Parcelable {
 		categoryId = in.readLong();
 		companyId = in.readLong();
 	}
+	
+	@Override
+	public String toString() {
+		return title;
+	}
     // KEEP METHODS END
 
 }

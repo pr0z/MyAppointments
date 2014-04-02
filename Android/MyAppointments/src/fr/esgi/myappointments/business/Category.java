@@ -172,6 +172,11 @@ public class Category implements Parcelable {
 		label = in.readString();
 		parentCategoryId = in.readLong();
 	}
+	
+	@Override
+	public String toString() {
+		return label;
+	}
     // KEEP METHODS END
 
 }
