@@ -15,10 +15,44 @@
 		{ "parentId": "1", "serverId": "11", "label": "Peintre" },
 		{ "parentId": "1", "serverId": "12", "label": "Jardinier" },
 		{ "parentId": "1", "serverId": "13", "label": "Plombier" },
-		{ "parentId": "2", "serverId": "14", "label": "Médecin" },
-		{ "parentId": "2", "serverId": "15", "label": "Dentiste" },
-		{ "parentId": "2", "serverId": "16", "label": "Cardiologue" },
-		{ "parentId": "2", "serverId": "17", "label": "Prise de sang" },
-		{ "parentId": "2", "serverId": "18", "label": "Radio" }
+		{ "parentId": "1", "serverId": "14", "label": "Autre" },
+		
+		{ "parentId": "2", "serverId": "15", "label": "Médecin" },
+		{ "parentId": "2", "serverId": "16", "label": "Dentiste" },
+		{ "parentId": "2", "serverId": "17", "label": "Cardiologue" },
+		{ "parentId": "2", "serverId": "18", "label": "Prise de sang" },
+		{ "parentId": "2", "serverId": "19", "label": "Radio" },
+		{ "parentId": "2", "serverId": "20", "label": "Autre" },
+		
+		{ "parentId": "3", "serverId": "21", "label": "Bars" },
+		{ "parentId": "3", "serverId": "22", "label": "Hôtels" },
+		{ "parentId": "3", "serverId": "23", "label": "Karting" },
+		{ "parentId": "3", "serverId": "24", "label": "Bowling" },
+		{ "parentId": "3", "serverId": "25", "label": "Paintball" },
+		{ "parentId": "3", "serverId": "26", "label": "Golf" },
+		{ "parentId": "3", "serverId": "27", "label": "Parachute" },
+		{ "parentId": "3", "serverId": "28", "label": "Théâtre" },
+		{ "parentId": "3", "serverId": "29", "label": "Spectacle" },
+		{ "parentId": "3", "serverId": "30", "label": "Boîte de nuit" },
+		{ "parentId": "3", "serverId": "31", "label": "Restaurants" },
+		{ "parentId": "3", "serverId": "32", "label": "Massage" },
+		{ "parentId": "3", "serverId": "33", "label": "Autre" },
+				
+		{ "parentId": "4", "serverId": "34", "label": "Mairie" },
+		{ "parentId": "4", "serverId": "35", "label": "Auto-école" },
+		{ "parentId": "4", "serverId": "36", "label": "Information" },
+		{ "parentId": "4", "serverId": "37", "label": "Sécurité sociale" },
+		{ "parentId": "4", "serverId": "38", "label": "Préfecture" },
+		{ "parentId": "4", "serverId": "39", "label": "Autre" },
+		
+		{ "parentId": "5", "serverId": "40", "label": "Banque" },
+		{ "parentId": "5", "serverId": "41", "label": "Assurance" },
+		{ "parentId": "5", "serverId": "42", "label": "Coiffeur" },
+		{ "parentId": "5", "serverId": "43", "label": "Fleuriste" },
+		{ "parentId": "5", "serverId": "44", "label": "Boulangerie" },
+		{ "parentId": "5", "serverId": "45", "label": "Pâtisserie" },
+		{ "parentId": "5", "serverId": "46", "label": "Traiteur" },
+		{ "parentId": "5", "serverId": "47", "label": "Autre" }
+		
 	]
 }

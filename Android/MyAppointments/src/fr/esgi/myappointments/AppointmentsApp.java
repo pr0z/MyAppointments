@@ -4,11 +4,16 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.http.impl.client.DefaultProxyAuthenticationHandler;
+
 import android.app.Application;
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.util.SparseArray;
 import android.widget.Toast;
@@ -18,6 +23,7 @@ import fr.esgi.myappointments.business.DaoMaster;
 import fr.esgi.myappointments.business.DaoMaster.DevOpenHelper;
 import fr.esgi.myappointments.business.DaoSession;
 import fr.esgi.myappointments.util.ParserAssets;
+import fr.esgi.myappointments.util.PrefsManager;
 
 public class AppointmentsApp extends Application {
 	
@@ -29,17 +35,16 @@ public class AppointmentsApp extends Application {
 	private static SQLiteDatabase db;
 	public static String DATABASE_NAME = "myappointments_db";
 	
-	public static String BUDDYDROID_PREFS = "APPOINTMENTS_PREFERENCES";
-	public static String PREFS_USER = "USER_PREFERENCES";
-	
-	//Pref Friend
-	public static String PREF_ID = "PREF_ID";
-	
-	
+	private SharedPreferences prefs;
 
 	@Override
 	public void onCreate() {
 		super.onCreate();
+	
+		prefs = PrefsManager.getPreferences(this);
+		
+		if (prefs.contains(PrefsManager.PREF_INIT_DATABASE) && prefs.getBoolean(PrefsManager.PREF_INIT_DATABASE, true))
+			recreateDB(this);
 	}
 
 	@Override
@@ -56,13 +61,22 @@ public class AppointmentsApp extends Application {
 		return db;
 	}
 	
+	public static DaoSession getDBSession(Context context) {
+		SQLiteDatabase sqldb = getDB(context);
+		DaoMaster daoMaster = new DaoMaster(sqldb);
+		return daoMaster.newSession();
+	}
+	
 	//Recreate Database
-	public static void recreateDB(Context context) {
+	public void recreateDB(Context context) {
 		SQLiteDatabase sqldb = AppointmentsApp.getDB(context);
 		
 		DaoMaster.dropAllTables(sqldb, true);
 		DaoMaster.createAllTables(sqldb, true);
 		initDatabase(sqldb, context); 
+		
+		Editor editor = PrefsManager.getPreferencesEditor(context);
+		editor.putBoolean(PrefsManager.PREF_INIT_DATABASE, false).commit();
 	}
 	
 	public static void initDatabase(SQLiteDatabase sqldb, Context context) {
@@ -71,15 +85,12 @@ public class AppointmentsApp extends Application {
 		CategoryDao categDao = daoSession.getCategoryDao();
 		
 		//Category
-//		String[] arrayCat = context.getResources().getStringArray(R.array.array_category);
 		List<Category> listCateg = ParserAssets.loadCategories(context, "categories");
 		categDao.insertInTx(listCateg);
-//		listCateg = categDao.loadAll();
+		
 		SparseArray<Category> mapCateg = new SparseArray<Category>();
 		for (Category categ : listCateg)
 			mapCateg.put(categ.getServerId(), categ);
-		
-		Log.v(TAG, "CATEGORIES = "+listCateg.size());
 		
 		//Subcategory
 		List<Category> listSubcateg = ParserAssets.loadCategories(context, "subcategories");
@@ -88,9 +99,8 @@ public class AppointmentsApp extends Application {
 			if (parent != null)
 				categ.setParentCategory(parent);
 //			Log.v(TAG, "PARENT="+categ.getParentCategory().getServerId()+" "+categ.getParentCategory().getLabel()+" "+categ.getParentCategoryId());
-
-			categDao.insert(categ);
 		}
+		categDao.insertInTx(listSubcateg);
 	}
 	
 	//Check if connection possible
