@@ -33,7 +33,8 @@ public class TaskDao extends AbstractDao<Task, Long> {
         public final static Property DateBegin = new Property(4, java.util.Date.class, "dateBegin", false, "DATE_BEGIN");
         public final static Property DateEnd = new Property(5, java.util.Date.class, "dateEnd", false, "DATE_END");
         public final static Property CategoryId = new Property(6, long.class, "categoryId", false, "CATEGORY_ID");
-        public final static Property CompanyId = new Property(7, long.class, "companyId", false, "COMPANY_ID");
+        public final static Property UserId = new Property(7, long.class, "userId", false, "USER_ID");
+        public final static Property CompanyId = new Property(8, Long.class, "companyId", false, "COMPANY_ID");
     };
 
     private DaoSession daoSession;
@@ -59,7 +60,8 @@ public class TaskDao extends AbstractDao<Task, Long> {
                 "'DATE_BEGIN' INTEGER," + // 4: dateBegin
                 "'DATE_END' INTEGER," + // 5: dateEnd
                 "'CATEGORY_ID' INTEGER NOT NULL ," + // 6: categoryId
-                "'COMPANY_ID' INTEGER NOT NULL );"); // 7: companyId
+                "'USER_ID' INTEGER NOT NULL ," + // 7: userId
+                "'COMPANY_ID' INTEGER);"); // 8: companyId
     }
 
     /** Drops the underlying database table. */
@@ -99,7 +101,12 @@ public class TaskDao extends AbstractDao<Task, Long> {
             stmt.bindLong(6, dateEnd.getTime());
         }
         stmt.bindLong(7, entity.getCategoryId());
-        stmt.bindLong(8, entity.getCompanyId());
+        stmt.bindLong(8, entity.getUserId());
+ 
+        Long companyId = entity.getCompanyId();
+        if (companyId != null) {
+            stmt.bindLong(9, companyId);
+        }
     }
 
     @Override
@@ -125,7 +132,8 @@ public class TaskDao extends AbstractDao<Task, Long> {
             cursor.isNull(offset + 4) ? null : new java.util.Date(cursor.getLong(offset + 4)), // dateBegin
             cursor.isNull(offset + 5) ? null : new java.util.Date(cursor.getLong(offset + 5)), // dateEnd
             cursor.getLong(offset + 6), // categoryId
-            cursor.getLong(offset + 7) // companyId
+            cursor.getLong(offset + 7), // userId
+            cursor.isNull(offset + 8) ? null : cursor.getLong(offset + 8) // companyId
         );
         return entity;
     }
@@ -140,7 +148,8 @@ public class TaskDao extends AbstractDao<Task, Long> {
         entity.setDateBegin(cursor.isNull(offset + 4) ? null : new java.util.Date(cursor.getLong(offset + 4)));
         entity.setDateEnd(cursor.isNull(offset + 5) ? null : new java.util.Date(cursor.getLong(offset + 5)));
         entity.setCategoryId(cursor.getLong(offset + 6));
-        entity.setCompanyId(cursor.getLong(offset + 7));
+        entity.setUserId(cursor.getLong(offset + 7));
+        entity.setCompanyId(cursor.isNull(offset + 8) ? null : cursor.getLong(offset + 8));
      }
     
     /** @inheritdoc */
@@ -175,10 +184,13 @@ public class TaskDao extends AbstractDao<Task, Long> {
             builder.append(',');
             SqlUtils.appendColumns(builder, "T0", daoSession.getCategoryDao().getAllColumns());
             builder.append(',');
-            SqlUtils.appendColumns(builder, "T1", daoSession.getCompanyDao().getAllColumns());
+            SqlUtils.appendColumns(builder, "T1", daoSession.getUserDao().getAllColumns());
+            builder.append(',');
+            SqlUtils.appendColumns(builder, "T2", daoSession.getCompanyDao().getAllColumns());
             builder.append(" FROM TASK T");
             builder.append(" LEFT JOIN CATEGORY T0 ON T.'CATEGORY_ID'=T0.'_id'");
-            builder.append(" LEFT JOIN COMPANY T1 ON T.'COMPANY_ID'=T1.'_id'");
+            builder.append(" LEFT JOIN USER T1 ON T.'USER_ID'=T1.'_id'");
+            builder.append(" LEFT JOIN COMPANY T2 ON T.'COMPANY_ID'=T2.'_id'");
             builder.append(' ');
             selectDeep = builder.toString();
         }
@@ -195,10 +207,14 @@ public class TaskDao extends AbstractDao<Task, Long> {
         }
         offset += daoSession.getCategoryDao().getAllColumns().length;
 
-        Company company = loadCurrentOther(daoSession.getCompanyDao(), cursor, offset);
-         if(company != null) {
-            entity.setCompany(company);
+        User user = loadCurrentOther(daoSession.getUserDao(), cursor, offset);
+         if(user != null) {
+            entity.setUser(user);
         }
+        offset += daoSession.getUserDao().getAllColumns().length;
+
+        Company company = loadCurrentOther(daoSession.getCompanyDao(), cursor, offset);
+        entity.setCompany(company);
 
         return entity;    
     }

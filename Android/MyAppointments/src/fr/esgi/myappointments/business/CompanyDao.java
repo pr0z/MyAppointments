@@ -37,6 +37,7 @@ public class CompanyDao extends AbstractDao<Company, Long> {
         public final static Property CreationDate = new Property(8, java.util.Date.class, "creationDate", false, "CREATION_DATE");
         public final static Property CategoryId = new Property(9, long.class, "categoryId", false, "CATEGORY_ID");
         public final static Property AddressId = new Property(10, long.class, "addressId", false, "ADDRESS_ID");
+        public final static Property LocationId = new Property(11, Long.class, "locationId", false, "LOCATION_ID");
     };
 
     private DaoSession daoSession;
@@ -65,7 +66,8 @@ public class CompanyDao extends AbstractDao<Company, Long> {
                 "'PHONE' TEXT NOT NULL ," + // 7: phone
                 "'CREATION_DATE' INTEGER," + // 8: creationDate
                 "'CATEGORY_ID' INTEGER NOT NULL ," + // 9: categoryId
-                "'ADDRESS_ID' INTEGER NOT NULL );"); // 10: addressId
+                "'ADDRESS_ID' INTEGER NOT NULL ," + // 10: addressId
+                "'LOCATION_ID' INTEGER);"); // 11: locationId
     }
 
     /** Drops the underlying database table. */
@@ -105,6 +107,11 @@ public class CompanyDao extends AbstractDao<Company, Long> {
         }
         stmt.bindLong(10, entity.getCategoryId());
         stmt.bindLong(11, entity.getAddressId());
+ 
+        Long locationId = entity.getLocationId();
+        if (locationId != null) {
+            stmt.bindLong(12, locationId);
+        }
     }
 
     @Override
@@ -133,7 +140,8 @@ public class CompanyDao extends AbstractDao<Company, Long> {
             cursor.getString(offset + 7), // phone
             cursor.isNull(offset + 8) ? null : new java.util.Date(cursor.getLong(offset + 8)), // creationDate
             cursor.getLong(offset + 9), // categoryId
-            cursor.getLong(offset + 10) // addressId
+            cursor.getLong(offset + 10), // addressId
+            cursor.isNull(offset + 11) ? null : cursor.getLong(offset + 11) // locationId
         );
         return entity;
     }
@@ -152,6 +160,7 @@ public class CompanyDao extends AbstractDao<Company, Long> {
         entity.setCreationDate(cursor.isNull(offset + 8) ? null : new java.util.Date(cursor.getLong(offset + 8)));
         entity.setCategoryId(cursor.getLong(offset + 9));
         entity.setAddressId(cursor.getLong(offset + 10));
+        entity.setLocationId(cursor.isNull(offset + 11) ? null : cursor.getLong(offset + 11));
      }
     
     /** @inheritdoc */
@@ -187,9 +196,12 @@ public class CompanyDao extends AbstractDao<Company, Long> {
             SqlUtils.appendColumns(builder, "T0", daoSession.getCategoryDao().getAllColumns());
             builder.append(',');
             SqlUtils.appendColumns(builder, "T1", daoSession.getAddressDao().getAllColumns());
+            builder.append(',');
+            SqlUtils.appendColumns(builder, "T2", daoSession.getLocationDao().getAllColumns());
             builder.append(" FROM COMPANY T");
             builder.append(" LEFT JOIN CATEGORY T0 ON T.'CATEGORY_ID'=T0.'_id'");
             builder.append(" LEFT JOIN ADDRESS T1 ON T.'ADDRESS_ID'=T1.'_id'");
+            builder.append(" LEFT JOIN LOCATION T2 ON T.'LOCATION_ID'=T2.'_id'");
             builder.append(' ');
             selectDeep = builder.toString();
         }
@@ -210,6 +222,10 @@ public class CompanyDao extends AbstractDao<Company, Long> {
          if(address != null) {
             entity.setAddress(address);
         }
+        offset += daoSession.getAddressDao().getAllColumns().length;
+
+        Location location = loadCurrentOther(daoSession.getLocationDao(), cursor, offset);
+        entity.setLocation(location);
 
         return entity;    
     }

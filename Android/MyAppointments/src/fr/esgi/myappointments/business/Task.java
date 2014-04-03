@@ -24,7 +24,8 @@ public class Task implements Parcelable {
     private java.util.Date dateBegin;
     private java.util.Date dateEnd;
     private long categoryId;
-    private long companyId;
+    private long userId;
+    private Long companyId;
 
     /** Used to resolve relations */
     private transient DaoSession daoSession;
@@ -34,6 +35,9 @@ public class Task implements Parcelable {
 
     private Category category;
     private Long category__resolvedKey;
+
+    private User user;
+    private Long user__resolvedKey;
 
     private Company company;
     private Long company__resolvedKey;
@@ -49,7 +53,7 @@ public class Task implements Parcelable {
         this.id = id;
     }
 
-    public Task(Long id, Integer serverId, String title, String desc, java.util.Date dateBegin, java.util.Date dateEnd, long categoryId, long companyId) {
+    public Task(Long id, Integer serverId, String title, String desc, java.util.Date dateBegin, java.util.Date dateEnd, long categoryId, long userId, Long companyId) {
         this.id = id;
         this.serverId = serverId;
         this.title = title;
@@ -57,6 +61,7 @@ public class Task implements Parcelable {
         this.dateBegin = dateBegin;
         this.dateEnd = dateEnd;
         this.categoryId = categoryId;
+        this.userId = userId;
         this.companyId = companyId;
     }
 
@@ -124,11 +129,19 @@ public class Task implements Parcelable {
         this.categoryId = categoryId;
     }
 
-    public long getCompanyId() {
+    public long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
+
+    public Long getCompanyId() {
         return companyId;
     }
 
-    public void setCompanyId(long companyId) {
+    public void setCompanyId(Long companyId) {
         this.companyId = companyId;
     }
 
@@ -161,8 +174,36 @@ public class Task implements Parcelable {
     }
 
     /** To-one relationship, resolved on first access. */
+    public User getUser() {
+        long __key = this.userId;
+        if (user__resolvedKey == null || !user__resolvedKey.equals(__key)) {
+            if (daoSession == null) {
+                throw new DaoException("Entity is detached from DAO context");
+            }
+            UserDao targetDao = daoSession.getUserDao();
+            User userNew = targetDao.load(__key);
+            synchronized (this) {
+                user = userNew;
+            	user__resolvedKey = __key;
+            }
+        }
+        return user;
+    }
+
+    public void setUser(User user) {
+        if (user == null) {
+            throw new DaoException("To-one property 'userId' has not-null constraint; cannot set to-one to null");
+        }
+        synchronized (this) {
+            this.user = user;
+            userId = user.getId();
+            user__resolvedKey = userId;
+        }
+    }
+
+    /** To-one relationship, resolved on first access. */
     public Company getCompany() {
-        long __key = this.companyId;
+        Long __key = this.companyId;
         if (company__resolvedKey == null || !company__resolvedKey.equals(__key)) {
             if (daoSession == null) {
                 throw new DaoException("Entity is detached from DAO context");
@@ -178,12 +219,9 @@ public class Task implements Parcelable {
     }
 
     public void setCompany(Company company) {
-        if (company == null) {
-            throw new DaoException("To-one property 'companyId' has not-null constraint; cannot set to-one to null");
-        }
         synchronized (this) {
             this.company = company;
-            companyId = company.getId();
+            companyId = company == null ? null : company.getId();
             company__resolvedKey = companyId;
         }
     }

@@ -33,6 +33,7 @@ public class Company implements Parcelable {
     private java.util.Date creationDate;
     private long categoryId;
     private long addressId;
+    private Long locationId;
 
     /** Used to resolve relations */
     private transient DaoSession daoSession;
@@ -46,6 +47,9 @@ public class Company implements Parcelable {
     private Address address;
     private Long address__resolvedKey;
 
+    private Location location;
+    private Long location__resolvedKey;
+
 
     // KEEP FIELDS - put your custom fields here
     // KEEP FIELDS END
@@ -57,7 +61,7 @@ public class Company implements Parcelable {
         this.id = id;
     }
 
-    public Company(Long id, Integer serverId, String siren, String companyName, String contactFirstname, String contactLastname, String email, String phone, java.util.Date creationDate, long categoryId, long addressId) {
+    public Company(Long id, Integer serverId, String siren, String companyName, String contactFirstname, String contactLastname, String email, String phone, java.util.Date creationDate, long categoryId, long addressId, Long locationId) {
         this.id = id;
         this.serverId = serverId;
         this.siren = siren;
@@ -69,6 +73,7 @@ public class Company implements Parcelable {
         this.creationDate = creationDate;
         this.categoryId = categoryId;
         this.addressId = addressId;
+        this.locationId = locationId;
     }
 
     /** called by internal mechanisms, do not call yourself. */
@@ -175,6 +180,14 @@ public class Company implements Parcelable {
         this.addressId = addressId;
     }
 
+    public Long getLocationId() {
+        return locationId;
+    }
+
+    public void setLocationId(Long locationId) {
+        this.locationId = locationId;
+    }
+
     /** To-one relationship, resolved on first access. */
     public Category getCategory() {
         long __key = this.categoryId;
@@ -228,6 +241,31 @@ public class Company implements Parcelable {
             this.address = address;
             addressId = address.getId();
             address__resolvedKey = addressId;
+        }
+    }
+
+    /** To-one relationship, resolved on first access. */
+    public Location getLocation() {
+        Long __key = this.locationId;
+        if (location__resolvedKey == null || !location__resolvedKey.equals(__key)) {
+            if (daoSession == null) {
+                throw new DaoException("Entity is detached from DAO context");
+            }
+            LocationDao targetDao = daoSession.getLocationDao();
+            Location locationNew = targetDao.load(__key);
+            synchronized (this) {
+                location = locationNew;
+            	location__resolvedKey = __key;
+            }
+        }
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        synchronized (this) {
+            this.location = location;
+            locationId = location == null ? null : location.getId();
+            location__resolvedKey = locationId;
         }
     }
 
