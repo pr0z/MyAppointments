@@ -10,8 +10,8 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
-import fr.esgi.myappointments.CalendarActivity;
 import fr.esgi.myappointments.R;
+import fr.esgi.myappointments.activity.CalendarActivity;
 
 @SuppressLint("NewApi")
 public class NotifService extends IntentService {

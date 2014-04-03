@@ -1,5 +1,8 @@
-package fr.esgi.myappointments;
+package fr.esgi.myappointments.activity;
 
+import fr.esgi.myappointments.R;
+import fr.esgi.myappointments.R.layout;
+import fr.esgi.myappointments.R.menu;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;

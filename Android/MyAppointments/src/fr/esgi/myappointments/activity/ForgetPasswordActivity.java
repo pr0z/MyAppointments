@@ -1,4 +1,4 @@
-package fr.esgi.myappointments;
+package fr.esgi.myappointments.activity;
 
 import org.json.JSONObject;
 
@@ -10,6 +10,11 @@ import android.view.View;
 import android.widget.EditText;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
+import fr.esgi.myappointments.AppointmentsApp;
+import fr.esgi.myappointments.R;
+import fr.esgi.myappointments.R.id;
+import fr.esgi.myappointments.R.layout;
+import fr.esgi.myappointments.R.string;
 
 @SuppressLint("NewApi")
 public class ForgetPasswordActivity extends FragmentActivity {

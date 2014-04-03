@@ -1,4 +1,4 @@
-package fr.esgi.myappointments;
+package fr.esgi.myappointments.activity;
 
 import java.util.HashMap;
 import java.util.List;
@@ -14,6 +14,11 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+import fr.esgi.myappointments.AppointmentsApp;
+import fr.esgi.myappointments.R;
+import fr.esgi.myappointments.R.id;
+import fr.esgi.myappointments.R.layout;
+import fr.esgi.myappointments.R.string;
 import fr.esgi.myappointments.business.Category;
 import fr.esgi.myappointments.business.CategoryDao;
 import fr.esgi.myappointments.business.CategoryDao.Properties;

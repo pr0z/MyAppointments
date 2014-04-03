@@ -1,4 +1,4 @@
-package fr.esgi.myappointments;
+package fr.esgi.myappointments.activity;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -19,6 +19,11 @@ import android.widget.Toast;
 import com.roomorama.caldroid.CaldroidFragment;
 import com.roomorama.caldroid.CaldroidListener;
 
+import fr.esgi.myappointments.R;
+import fr.esgi.myappointments.R.id;
+import fr.esgi.myappointments.R.layout;
+import fr.esgi.myappointments.R.menu;
+import fr.esgi.myappointments.R.string;
 import fr.esgi.myappointments.service.NotifReceiver;
 import fr.esgi.myappointments.service.NotifService;
 import fr.esgi.myappointments.widget.NotifManager;

@@ -1,4 +1,4 @@
-package fr.esgi.myappointments;
+package fr.esgi.myappointments.activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,6 +10,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
+import fr.esgi.myappointments.R;
+import fr.esgi.myappointments.R.id;
+import fr.esgi.myappointments.R.layout;
+import fr.esgi.myappointments.R.string;
 import fr.esgi.myappointments.util.PrefsManager;
 
 public class ConnectionActivity extends Activity {

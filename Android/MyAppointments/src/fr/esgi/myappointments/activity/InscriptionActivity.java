@@ -1,4 +1,4 @@
-package fr.esgi.myappointments;
+package fr.esgi.myappointments.activity;
 
 import java.util.Date;
 
@@ -13,6 +13,11 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.ViewSwitcher;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
+import fr.esgi.myappointments.AppointmentsApp;
+import fr.esgi.myappointments.R;
+import fr.esgi.myappointments.R.id;
+import fr.esgi.myappointments.R.layout;
+import fr.esgi.myappointments.R.string;
 import fr.esgi.myappointments.util.FormValidator;
 
 public class InscriptionActivity extends FragmentActivity {
