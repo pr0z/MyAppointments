@@ -46,6 +46,34 @@
 		    android:layout_width="match_parent"
 		    android:layout_height="wrap_content" />
         
+        <TextView 
+            style="@style/FormLabel"
+            android:text="@string/label_datebegin" />
+       	<LinearLayout style="@style/FormDateLayout">
+	        <EditText 
+	            android:id="@+id/edit_datebegin"
+	            style="@style/FormDateValue"
+	            android:inputType="date" />
+	        <EditText 
+	            android:id="@+id/edit_timebegin"
+	            style="@style/FormDateValue"
+	            android:inputType="time" />
+        </LinearLayout>
+        
+        <TextView 
+            style="@style/FormLabel"
+            android:text="@string/label_dateend" />
+       	<LinearLayout style="@style/FormDateLayout">
+	        <EditText 
+	            android:id="@+id/edit_dateend"
+	            style="@style/FormDateValue"
+	            android:inputType="date" />
+	        <EditText 
+	            android:id="@+id/edit_timeend"
+	            style="@style/FormDateValue"
+	            android:inputType="time" />
+        </LinearLayout>
+        
 		<Button
             android:id="@+id/button_create"
             style="@style/Button"

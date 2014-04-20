@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Base application theme for API 14+. This theme completely replaces
+        AppBaseTheme from BOTH res/values/styles.xml and res/values-v11/styles.xml on API 14+ devices. -->
+	
+	<style name="Theme.Appointments" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+	    <item name="android:actionBarStyle">@style/Theme.Memory.ActionBarStyle</item>
+<!-- 	    <item name="android:alertDialogStyle">@style/CustomDialogTheme</item> -->
+	</style>
+	
+	<!-- style for ActionBar -->
+	<style name="Theme.Memory.ActionBarStyle" parent="@style/Widget.AppCompat.ActionBar">
+    	<item name="android:background">@color/actionbar_background</item>
+	    <item name="android:backgroundStacked">@color/actionbar_background</item>
+	    <item name="android:backgroundSplit">@color/grey</item>
+	    
+		<item name="android:titleTextStyle">@style/Theme.Memory.ActionBar.TitleTextStyle</item>
+	</style>
+	<!-- style for Title ActionBar -->
+	<style name="Theme.Memory.ActionBar.TitleTextStyle" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+		<item name="android:textColor">@color/actionbar_text</item>
+		<item name="android:textSize">@dimen/text_30</item>
+		<item name="android:textStyle">bold</item>
+	</style>
+	
+<!-- 	<style name="CustomDialogTheme" parent="@style/Theme.AppCompat.CompactMenu.Dialog"> -->
+<!-- 	    <item name="android:bottomBright">@color/white</item> -->
+<!-- 	    <item name="android:bottomDark">@color/white</item> -->
+<!-- 	    <item name="android:bottomMedium">@color/white</item> -->
+<!-- 	    <item name="android:centerBright">@color/activity_background</item> -->
+<!-- 	    <item name="android:centerDark">@color/activity_background</item> -->
+<!-- 	    <item name="android:centerMedium">@color/white</item> -->
+<!-- 	    <item name="android:fullBright">@color/actionbar_background</item> -->
+<!-- 	    <item name="android:fullDark">@color/actionbar_background</item> -->
+<!-- 	    <item name="android:topBright">@color/actionbar_background</item> -->
+<!-- 	    <item name="android:topDark">@color/actionbar_background</item> -->
+<!-- 	</style> -->
+	
+</resources>

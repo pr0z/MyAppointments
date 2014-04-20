@@ -4,8 +4,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.http.impl.client.DefaultProxyAuthenticationHandler;
-
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -13,15 +11,19 @@ import android.content.SharedPreferences.Editor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.preference.PreferenceManager;
-import android.util.Log;
 import android.util.SparseArray;
 import android.widget.Toast;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.Volley;
+
 import fr.esgi.myappointments.business.Category;
 import fr.esgi.myappointments.business.CategoryDao;
 import fr.esgi.myappointments.business.DaoMaster;
 import fr.esgi.myappointments.business.DaoMaster.DevOpenHelper;
 import fr.esgi.myappointments.business.DaoSession;
+import fr.esgi.myappointments.util.BitmapLruCache;
 import fr.esgi.myappointments.util.ParserAssets;
 import fr.esgi.myappointments.util.PrefsManager;
 
@@ -35,20 +37,26 @@ public class AppointmentsApp extends Application {
 	private static SQLiteDatabase db;
 	public static String DATABASE_NAME = "myappointments_db";
 	
-	private SharedPreferences prefs;
+	private SharedPreferences mPrefs;
+	private RequestQueue mRequestQueue;
+    private ImageLoader mImageLoader;
 
 	@Override
 	public void onCreate() {
 		super.onCreate();
 	
-		prefs = PrefsManager.getPreferences(this);
+		mPrefs = PrefsManager.getPreferences(this);
 		
-		if (prefs.contains(PrefsManager.PREF_INIT_DATABASE) && prefs.getBoolean(PrefsManager.PREF_INIT_DATABASE, true))
+		initPoolRequest();
+		
+		if (mPrefs.contains(PrefsManager.PREF_INIT_DATABASE) && mPrefs.getBoolean(PrefsManager.PREF_INIT_DATABASE, true))
 			recreateDB(this);
 	}
 
 	@Override
 	public void onTerminate() {
+		 mRequestQueue.stop();
+		 
 		super.onTerminate();
 	}
 	
@@ -79,6 +87,7 @@ public class AppointmentsApp extends Application {
 		editor.putBoolean(PrefsManager.PREF_INIT_DATABASE, false).commit();
 	}
 	
+	//Init Database
 	public static void initDatabase(SQLiteDatabase sqldb, Context context) {
 		DaoMaster daoMaster = new DaoMaster(sqldb);
 		DaoSession daoSession = daoMaster.newSession();
@@ -102,6 +111,27 @@ public class AppointmentsApp extends Application {
 		}
 		categDao.insertInTx(listSubcateg);
 	}
+	
+	//Init Volley pool request
+	private void initPoolRequest() {
+        mRequestQueue = Volley.newRequestQueue(getApplicationContext());
+        mImageLoader = new ImageLoader(mRequestQueue, new BitmapLruCache());
+        mRequestQueue.start();
+	}
+	
+	public RequestQueue getVolleyRequestQueue() {
+		if (mRequestQueue == null)
+            initPoolRequest();
+
+        return mRequestQueue;
+    }
+ 
+    public ImageLoader getVolleyImageLoader() {
+    	if (mImageLoader == null)
+    		initPoolRequest();
+    	
+        return mImageLoader;
+    }
 	
 	//Check if connection possible
 	public static boolean httpRequest(Context context) {

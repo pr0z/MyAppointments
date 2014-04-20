@@ -6,9 +6,9 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
-public class MyAppointmentsRestClient {
+public class RequestManager {
 
-	private static final String BASE_URL = "http://88.175.180.78:8080/ServerBuddy/";
+	private static final String BASE_URL = "http://myapps-main.cloudapp.net:1664/";
 
 	private static AsyncHttpClient client = new AsyncHttpClient();
 

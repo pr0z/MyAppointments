@@ -43,6 +43,8 @@
     <string name="label_female">Féminin</string>
    	<string name="label_email">Email :</string>
    	<string name="label_username">Pseudo :</string>
+   	<string name="label_datebegin">Date de début :</string>
+   	<string name="label_dateend">Date de fin :</string>
    	<string name="label_company_name">Raison sociale :</string>
    	<string name="label_postal_address">Adresse postale :</string>
    	<string name="label_num_siren">N° SIREN :</string>

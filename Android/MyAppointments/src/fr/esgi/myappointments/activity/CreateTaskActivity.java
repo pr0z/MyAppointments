@@ -1,13 +1,16 @@
 package fr.esgi.myappointments.activity;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.os.Bundle;
-import android.util.SparseArray;
+import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
@@ -16,21 +19,20 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import fr.esgi.myappointments.AppointmentsApp;
 import fr.esgi.myappointments.R;
-import fr.esgi.myappointments.R.id;
-import fr.esgi.myappointments.R.layout;
-import fr.esgi.myappointments.R.string;
 import fr.esgi.myappointments.business.Category;
 import fr.esgi.myappointments.business.CategoryDao;
 import fr.esgi.myappointments.business.CategoryDao.Properties;
 import fr.esgi.myappointments.business.DaoSession;
 import fr.esgi.myappointments.business.Task;
+import fr.esgi.myappointments.widget.DatePickerFragment;
+import fr.esgi.myappointments.widget.TimePickerFragment;
 
-public class CreateTaskActivity extends Activity {
+public class CreateTaskActivity extends FragmentActivity implements OnClickListener {
 
 	private static final String TAG = "CreateTaskActivity";
 	
 //	private TextView textTitle, textDesc;
-	private EditText editTitle, editDesc;
+	private EditText editTitle, editDesc, editDateBegin, editDateEnd, editTimeBegin, editTimeEnd;
 //	private String email, password;
 //	private CheckBox checkRememberMe;
 	private Spinner spinCategory, spinSubcategory;
@@ -47,9 +49,19 @@ public class CreateTaskActivity extends Activity {
 		
 		editTitle = (EditText) findViewById(R.id.edit_title);
 		editDesc = (EditText) findViewById(R.id.edit_desc);
+		editDateBegin = (EditText) findViewById(R.id.edit_datebegin);
+		editDateEnd = (EditText) findViewById(R.id.edit_dateend);
+		editTimeBegin = (EditText) findViewById(R.id.edit_timebegin);
+		editTimeEnd = (EditText) findViewById(R.id.edit_timeend);
 		spinCategory = (Spinner) findViewById(R.id.spinner_category);
 		spinSubcategory = (Spinner) findViewById(R.id.spinner_subcategory);
 		
+		editDateBegin.setOnClickListener(this);
+		editDateEnd.setOnClickListener(this);
+		editTimeBegin.setOnClickListener(this);
+		editTimeEnd.setOnClickListener(this);
+		
+		//Load CategoryDao
 		DaoSession daoSession = AppointmentsApp.getDBSession(this);
 		categDao = daoSession.getCategoryDao();
 		
@@ -122,11 +134,38 @@ public class CreateTaskActivity extends Activity {
 			String desc = editDesc.getText().toString();
 			Category categ = (Category) spinCategory.getSelectedItem();
 			Category subcateg = (Category) spinSubcategory.getSelectedItem();
+			Date dateBegin = (Date) editDateBegin.getTag();
+			Date dateEnd = (Date) editDateEnd.getTag();
+			Date timeBegin = (Date) editTimeBegin.getTag();
+			Date timeEnd = (Date) editTimeEnd.getTag();
 			
+			if (dateBegin != null && timeBegin != null)
+				dateBegin = addTimeToDate(dateBegin, timeBegin);
+			if (dateEnd != null && timeEnd != null)
+				dateEnd = addTimeToDate(dateEnd, timeEnd);
+			
+//			dateBegin = new Date(dateBegin.getTime() + timeBegin.getTime());
+			Log.v(TAG, dateBegin.toLocaleString());
 			//TODO Create new Task and save in DB
-	//		Task newTask = new Task(id, serverId, title, desc, dateBegin, dateEnd, categoryId, companyId)
+			Task newTask = new Task();
+			newTask.setTitle(title);
+			newTask.setDesc(desc);
+			newTask.setDateBegin(dateBegin);
+			
 			Toast.makeText(this, title+" "+desc+" "+categ.getLabel()+" "+subcateg.getLabel(), Toast.LENGTH_LONG).show();
 		}
+	}
+	
+	private Date addTimeToDate(Date date, Date time) {
+		Calendar cDate = Calendar.getInstance();
+		Calendar cTime = Calendar.getInstance();
+		cDate.setTime(date);
+		cTime.setTime(time);
+		cDate.set(Calendar.HOUR, cTime.get(Calendar.HOUR));
+		cDate.set(Calendar.MINUTE, cTime.get(Calendar.MINUTE));
+		cDate.set(Calendar.SECOND, 0);
+		
+		return cDate.getTime();
 	}
 	
 	private boolean checkFields() {
@@ -145,5 +184,47 @@ public class CreateTaskActivity extends Activity {
 		return isOk;
 	}
 
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.edit_datebegin:
+			showDatePickerDialog(editDateBegin);
+			break;
+		case R.id.edit_dateend:
+			showDatePickerDialog(editDateEnd);
+			break;
+		case R.id.edit_timebegin:
+			showTimePickerDialog(editTimeBegin);
+			break;
+		case R.id.edit_timeend:
+			showTimePickerDialog(editTimeEnd);
+			break;
+		}
+	}
+
+	public void showDatePickerDialog(EditText edit) {
+		// show the time picker dialog
+        DatePickerFragment newFragment = new DatePickerFragment();
+        newFragment.setEditText(edit);
+        newFragment.show(getSupportFragmentManager(), "datePicker");
+	}
 	
+	public void showTimePickerDialog(EditText edit) {
+		// show the time picker dialog
+		TimePickerFragment newFragment = new TimePickerFragment();
+        newFragment.setEditText(edit);
+        newFragment.show(getSupportFragmentManager(), "timePicker");
+	}
+	
+//	@Override
+//	public void onDatePicked(Calendar date, EditText edit) {
+//		//Display the selected date in the EditText
+//		edit.setText(FormatValue.dateFormat.format(date.getTime()));
+//	}
+	
+//	@Override
+//	public void onTimePicked(Calendar time, EditText edit)	{
+//	    //Display the selected time in the EditText
+//		edit.setText(FormatValue.timeFormat.format(time.getTime()));
+//	}
 }
