@@ -13,6 +13,7 @@ public class FormatValue {
 	public static SimpleDateFormat datetimeSQLiteFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
 	public static SimpleDateFormat dateWebServiceFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault());
 	public static SimpleDateFormat datetimeShortFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm", Locale.getDefault());
+	public static SimpleDateFormat dateSpaceFormat = new SimpleDateFormat("dd MMM yyyy");
 	public static SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
 	public static SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm", Locale.getDefault());
 	public static SimpleDateFormat datetimeLabelFormat = new SimpleDateFormat("HH:mm 'le' dd/MM/yyyy", Locale.getDefault());

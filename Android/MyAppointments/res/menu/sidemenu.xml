@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+	<item android:id="@+id/item_home" android:icon="@drawable/ic_menu_overflow" android:title="@string/menu_home" android:orderInCategory="0" />
+	<item android:id="@+id/item_tasks" android:icon="@drawable/ic_menu_overflow" android:title="@string/menu_tasks" android:orderInCategory="1" />
+	<item android:id="@+id/item_map" android:icon="@drawable/ic_menu_overflow" android:title="@string/menu_map" android:orderInCategory="2" />
+	<item android:id="@+id/item_history" android:icon="@drawable/ic_menu_overflow" android:title="@string/menu_history" android:orderInCategory="2" />
+	<item android:id="@+id/item_account" android:icon="@drawable/ic_menu_overflow" android:title="@string/menu_account" android:orderInCategory="3" />
+	<item android:id="@+id/item_settings" android:icon="@drawable/ic_menu_overflow" android:title="@string/menu_settings" android:orderInCategory="4" />	
+	<item android:id="@+id/item_about" android:icon="@drawable/ic_menu_overflow" android:title="@string/menu_about" android:orderInCategory="6" />
+            
+</menu>

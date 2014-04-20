@@ -14,6 +14,7 @@ import fr.esgi.myappointments.R;
 import fr.esgi.myappointments.R.id;
 import fr.esgi.myappointments.R.layout;
 import fr.esgi.myappointments.R.string;
+import fr.esgi.myappointments.fragment.CalendarFragment;
 import fr.esgi.myappointments.util.PrefsManager;
 
 public class ConnectionActivity extends Activity {
@@ -161,7 +162,7 @@ public class ConnectionActivity extends Activity {
 		     public void onFinish() {
 		    	Crouton.makeText(ConnectionActivity.this, "FINISH", Style.INFO).show();
 		    	//TODO : Get for Debug
-		    	*/Intent intent = new Intent(ConnectionActivity.this, CalendarActivity.class);
+		    	*/Intent intent = new Intent(ConnectionActivity.this, CalendarFragment.class);
 				startActivity(intent);/*
 		     }
 		};

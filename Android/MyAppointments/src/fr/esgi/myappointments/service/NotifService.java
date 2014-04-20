@@ -11,7 +11,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import fr.esgi.myappointments.R;
-import fr.esgi.myappointments.activity.CalendarActivity;
+import fr.esgi.myappointments.fragment.CalendarFragment;
 
 @SuppressLint("NewApi")
 public class NotifService extends IntentService {
@@ -59,7 +59,7 @@ public class NotifService extends IntentService {
 	    }
 	    
 	   	//When the user taps the notification we have to show the Home Screen of our App, this job can be done with the help of the following Intent.
-	    Intent notifIntent = new Intent(this, CalendarActivity.class);
+	    Intent notifIntent = new Intent(this, CalendarFragment.class);
 	    notifIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP|Intent.FLAG_ACTIVITY_CLEAR_TOP);
 	    PendingIntent pNotifIntent = PendingIntent.getActivity(this, 0, notifIntent, 0);
 	

@@ -1,6 +1,5 @@
-package fr.esgi.myappointments.activity;
+package fr.esgi.myappointments.fragment;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -10,31 +9,31 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBarActivity;
+import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.roomorama.caldroid.CaldroidFragment;
 import com.roomorama.caldroid.CaldroidListener;
 
 import fr.esgi.myappointments.R;
-import fr.esgi.myappointments.R.id;
-import fr.esgi.myappointments.R.layout;
-import fr.esgi.myappointments.R.menu;
-import fr.esgi.myappointments.R.string;
+import fr.esgi.myappointments.activity.CreateTaskActivity;
+import fr.esgi.myappointments.activity.HomeActivity;
 import fr.esgi.myappointments.service.NotifReceiver;
-import fr.esgi.myappointments.service.NotifService;
+import fr.esgi.myappointments.util.FormatValue;
 import fr.esgi.myappointments.widget.NotifManager;
 
-public class CalendarActivity extends FragmentActivity {
+public class CalendarFragment extends Fragment {
 
 	public static final String TAG = "CalendarActivity";
 	
 	private CaldroidFragment caldroidFragment;
-	
-	private final SimpleDateFormat formatter = new SimpleDateFormat("dd MMM yyyy");
 	
 	private final boolean enableSwipe = true;
 	private final boolean showNavArrow = true;
@@ -43,11 +42,10 @@ public class CalendarActivity extends FragmentActivity {
 	private ArrayList<Date> disabledDates;
 	
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_calendar);
 		
-		getActionBar().setTitle(R.string.title_home);
+		((ActionBarActivity) getActivity()).getSupportActionBar().setTitle(R.string.title_home);
 		
 		caldroidFragment = new CaldroidFragment();
 		caldroidFragment.setCaldroidListener(calendarListener);
@@ -64,16 +62,23 @@ public class CalendarActivity extends FragmentActivity {
 			args.putInt(CaldroidFragment.YEAR, cal.get(Calendar.YEAR));
 			args.putBoolean(CaldroidFragment.ENABLE_SWIPE, enableSwipe);
 			args.putBoolean(CaldroidFragment.SIX_WEEKS_IN_CALENDAR, true);
-			args.putInt(CaldroidFragment.START_DAY_OF_WEEK, CaldroidFragment.MONDAY); //Sunday
+			args.putInt(CaldroidFragment.START_DAY_OF_WEEK, CaldroidFragment.MONDAY); 
 			caldroidFragment.setArguments(args);
 		}
 
 		// Attach to the activity
-		getSupportFragmentManager().beginTransaction().replace(R.id.calendarview, caldroidFragment).commit();
+		getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.calendarview, caldroidFragment).commit();
 	}
 	
 	@Override
-	protected void onStart() {
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		View rootView = inflater.inflate(R.layout.activity_calendar, container, false);
+		
+		return rootView;
+	}
+	
+	@Override
+	public void onStart() {
 		super.onStart();
 		
 		initCalendar();
@@ -81,7 +86,13 @@ public class CalendarActivity extends FragmentActivity {
 	}
 	
 	@Override
-	protected void onSaveInstanceState(Bundle outState) {
+	public void onActivityCreated(Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
+		setHasOptionsMenu(true);
+	}
+	
+	@Override
+	public void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
 
 		if (caldroidFragment != null) {
@@ -90,16 +101,16 @@ public class CalendarActivity extends FragmentActivity {
 	}
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.calendar, menu);
-		return true;
+	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+		super.onCreateOptionsMenu(menu, inflater);
+		getActivity().getMenuInflater().inflate(R.menu.calendar, menu);
 	}
 	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.menu_create_task:
-			Intent intent = new Intent(this, CreateTaskActivity.class);
+			Intent intent = new Intent(getActivity(), CreateTaskActivity.class);
 			startActivity(intent);
 			break;
 
@@ -155,38 +166,38 @@ public class CalendarActivity extends FragmentActivity {
 	final CaldroidListener calendarListener = new CaldroidListener() {
 		@Override
 		public void onSelectDate(Date date, View view) {
-			Toast.makeText(getApplicationContext(), formatter.format(date),	Toast.LENGTH_SHORT).show();
+			Toast.makeText(getActivity().getApplicationContext(), FormatValue.dateSpaceFormat.format(date),	Toast.LENGTH_SHORT).show();
 			Calendar calendar = Calendar.getInstance();
 			calendar.setTime(date);
 			
 			//Notif
-			NotifManager notifManager = new NotifManager(getApplicationContext());
+			NotifManager notifManager = new NotifManager(getActivity().getApplicationContext());
 			notifManager.addNotif(HomeActivity.class, 0, "Date", date.toString());
 			
 			//Alarm
-			AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-			Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+			AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
+			Intent intent = new Intent(getActivity().getApplicationContext(), HomeActivity.class);
 			intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-			PendingIntent pIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, 0);
+			PendingIntent pIntent = PendingIntent.getActivity(getActivity().getApplicationContext(), 0, intent, 0);
 			alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pIntent);
 		}
 
 		@Override
 		public void onChangeMonth(int month, int year) {
 			String text = "month: " + month + " year: " + year;
-			Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT).show();
+			Toast.makeText(getActivity().getApplicationContext(), text, Toast.LENGTH_SHORT).show();
 		}
 
 		@Override
 		public void onLongClickDate(Date date, View view) {
-			Toast.makeText(getApplicationContext(), "Long click " + formatter.format(date), Toast.LENGTH_SHORT).show();
+			Toast.makeText(getActivity().getApplicationContext(), "Long click " + FormatValue.dateSpaceFormat.format(date), Toast.LENGTH_SHORT).show();
 			
-			Intent myIntent = new Intent(getApplicationContext(), NotifReceiver.class);    
+			Intent myIntent = new Intent(getActivity().getApplicationContext(), NotifReceiver.class);    
 			myIntent.putExtra("date", date.getTime());
-			myIntent.putExtra("text", "Rendez vous le "+formatter.format(date));
+			myIntent.putExtra("text", "Rendez vous le "+FormatValue.dateSpaceFormat.format(date));
 			
-			AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-			PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, myIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+			AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(getActivity().ALARM_SERVICE);
+			PendingIntent pendingIntent = PendingIntent.getBroadcast(getActivity().getApplicationContext(), 0, myIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 			
 			alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+1000*5, pendingIntent); 
 		}
@@ -194,7 +205,7 @@ public class CalendarActivity extends FragmentActivity {
 		@Override
 		public void onCaldroidViewCreated() {
 			if (caldroidFragment.getLeftArrowButton() != null) {
-				Toast.makeText(getApplicationContext(),	"Caldroid view is created", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getActivity().getApplicationContext(),	"Caldroid view is created", Toast.LENGTH_SHORT).show();
 			}
 		}
 	};

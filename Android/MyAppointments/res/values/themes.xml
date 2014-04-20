@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Application theme -->
-    
-<!--     <style name="Theme.Memory" parent="@style/Theme.AppCompat.Light"> -->
-<!--     </style> -->
-
-<!--          Support library compatibility  -->
+   
+<!-- Support library compatibility  -->
 	<style name="Theme.Appointments" parent="@style/Theme.AppCompat">
         <item name="actionBarStyle">@style/MyActionBar</item>
         <item name="actionBarTabTextStyle">@style/MyActionBarTabText</item>

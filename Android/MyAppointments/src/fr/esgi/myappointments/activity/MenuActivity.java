@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -17,8 +16,11 @@ import android.widget.ListView;
 import fr.esgi.myappointments.R;
 import fr.esgi.myappointments.adapter.MenuListAdapter;
 import fr.esgi.myappointments.adapter.MenuListAdapter.SlideMenuItem;
+import fr.esgi.myappointments.fragment.CalendarFragment;
 
 public class MenuActivity extends ActionBarActivity {
+	
+	public static final String TAG = "MenuActivity";
 	
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
@@ -38,30 +40,31 @@ public class MenuActivity extends ActionBarActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         
         // set a custom shadow that overlays the main content when the drawer opens
-        mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
+//        mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
         // Set the adapter for the list view
 //        mDrawerList.setAdapter(new ArrayAdapter<String>(this, R.layout.drawer_list_item, mMenu));
         mMenuAdapter = new MenuListAdapter(this, R.menu.sidemenu);
-        // Set the MenuListAdapter to the ListView
+        Log.v(TAG, "MENU = "+mMenuAdapter.getCount());
+        //Add items menu to the Menu
         mDrawerList.setAdapter(mMenuAdapter);
-        // Set the list's click listener
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.drawable.ic_drawer, R.string.drawer_open, R.string.drawer_close) {
-            /** Called when a drawer has settled in a completely closed state. */
             public void onDrawerClosed(View view) {
-                supportInvalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+//                supportInvalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
-            /** Called when a drawer has settled in a completely open state. */
             public void onDrawerOpened(View drawerView) {
-                getSupportActionBar().setTitle(R.string.menu);
-                supportInvalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
+                getSupportActionBar().setTitle(R.string.drawer_menu);
+//                supportInvalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
         };
 
         // Set the drawer toggle as the DrawerListener
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         
+        if (savedInstanceState == null) {
+            selectItem(R.id.item_home);
+        }
     }
     
     @Override
@@ -141,28 +144,28 @@ public class MenuActivity extends ActionBarActivity {
         
         // Create a new fragment and specify the planet to show based on position
     	switch (id) {
-    	case R.id.item_about :
-    		fragment = new AboutFragment();
-    		break;
-    	
-    	case R.id.item_categories :
-    		fragment = new CategoriesFragment();
-    		break;
-    		
-    	case R.id.item_favorites :
-    		fragment = new ListFavoriteFragment();
-    		break;
-    		
-    	case R.id.item_account :
-//    		fragment = new AccountFragment();
-    		break;
-    		
-    	case R.id.item_excuses :
-    		fragment = new ListExcuseFragment();
-    		break;
-    		
+//    	case R.id.item_about :
+//    		fragment = new AboutFragment();
+//    		break;
+//    	
+//    	case R.id.item_categories :
+//    		fragment = new CategoriesFragment();
+//    		break;
+//    		
+//    	case R.id.item_favorites :
+//    		fragment = new ListFavoriteFragment();
+//    		break;
+//    		
+//    	case R.id.item_account :
+////    		fragment = new AccountFragment();
+//    		break;
+//    		
+//    	case R.id.item_excuses :
+//    		fragment = new ListExcuseFragment();
+//    		break;
+//    		
     	default : 
-    		fragment = new ListExcuseFragment();
+    		fragment = new CalendarFragment();
     		break;
     	}
     	

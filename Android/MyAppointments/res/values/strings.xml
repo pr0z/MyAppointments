@@ -2,6 +2,23 @@
 <resources>
     <string name="app_name">My Appointments</string>
     
+    <!-- MENU -->
+	<string name="drawer_menu">Menu</string>
+	<string name="drawer_open">Ouvert</string>
+ 	<string name="drawer_close">Fermé</string>
+ 	
+ 	<string name="menu_home">Accueil</string>
+ 	<string name="menu_calendar">Calendrier</string>
+ 	<string name="menu_tasks">Tâches</string>
+ 	<string name="menu_map">Carte</string>
+ 	<string name="menu_history">Historique</string>
+ 	<string name="menu_account">Compte</string>
+ 	<string name="menu_settings">Paramètres</string>
+ 	<string name="menu_about">À propos</string>
+ 	
+	<!-- OPTIONS MENU -->
+	<string name="label_create_task">Création de tâche</string>
+    
     <!-- TITLE -->
     <string name="title_connection">Connexion</string>
     <string name="title_inscription">Inscription</string>
@@ -62,10 +79,7 @@
  	<string name="label_title">Titre</string>
  	<string name="label_description">Description</string>
  	<string name="label_category">Catégorie</string>
- 	<string name="label_subcategory">Sous-catégorie</string>
-    
-	<!-- MENU -->
-	<string name="label_create_task">Création de tâche</string>
+ 	<string name="label_subcategory">Sous-catégorie</string>	
     
     <!-- TOAST -->
     <string name="toast_fields_empty">Tous les champs ne sont pas encore remplis</string>
